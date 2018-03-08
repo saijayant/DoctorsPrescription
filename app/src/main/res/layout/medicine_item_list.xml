@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
-    android:elevation="4dp"
     android:background="#f1f1f1"
     android:orientation="horizontal"
 
@@ -31,40 +30,14 @@
             android:text="Medicine name"
             android:textColor="#7e7e7e"
             android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/medicine_name"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-condensed-light"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="0dp"
-            android:padding="4dp"
-            android:text="Medicine Description  have modified your code as per your question i have converted your time-stamp into milliseconds and subtracted 6 hours from it and than again"
-            android:textColor="@color/gray"
-            android:textSize="14sp" />
-
-
-        <View
-            android:id="@+id/day_divider"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_below="@+id/description"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="32dp"
-            android:background="@color/gainsboro" />
-
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/check_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_below="@+id/day_divider"
-          >
+            android:layout_below="@+id/medicine_name"
+            android:layout_marginBottom="0dp">
 
             <TextView
                 android:id="@+id/itemShare"
@@ -76,16 +49,16 @@
 
                 android:padding="4dp"
                 android:text="Show this medicine always "
-                android:textColor="@color/gray"
+                android:textColor="@color/green"
                 android:textSize="14sp" />
 
             <LinearLayout
                 android:id="@+id/csb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="4dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/check_backgroung">
 
@@ -101,227 +74,249 @@
 
             </LinearLayout>
 
+
+
+
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/med_type"
+        <RelativeLayout
+            android:id="@+id/expand_shrink"
+android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_below="@+id/check_layout"
-            >
+            android:layout_below="@+id/check_layout">
 
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:padding="4dp"
+                android:text="Medicine Description  have modified your code as per your question i have converted your time-stamp into milliseconds and subtracted 6 hours from it and than again"
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
+
+
+            <View
+                android:id="@+id/day_divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/description"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="32dp"
+                android:background="@color/gainsboro" />
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/med_type"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:layout_below="@+id/day_divider"
+                android:layout_marginBottom="0dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:textColor="#7e7e7e"
 
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:text="Medicine type -"
-                    android:textSize="13sp" />
-                <TextView
-                    android:id="@+id/med_type_"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:text="2"
-                    android:textColor="#2452d1"
-                    android:textSize="13sp" />
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+
+                        android:text="Medicine type -"
+                        android:textColor="#7e7e7e"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/med_type_"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+                        android:text="2"
+                        android:textColor="#2452d1"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
 
-
-        </LinearLayout>
-
-
-
-        <TextView
-            android:id="@+id/dosage"
-            android:layout_below="@+id/med_type"
-android:fontFamily="sans-serif-condensed-light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="0dp"
-            android:padding="4dp"
-            android:textStyle="bold"
-            android:textColor="#7e7e7e"
-
-            android:layout_weight="1"
-            android:text="Dosage "
-            android:textSize="14sp" />
-
-        <LinearLayout
-            android:id="@+id/afterfood"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_below="@+id/dosage"
-            >
-
-
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/dosage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                >
+                android:layout_below="@+id/med_type"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed-light"
+                android:padding="4dp"
+                android:text="Dosage "
 
-                <TextView
+                android:textColor="#7e7e7e"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/afterfood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dosage"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+                        android:text="Day (After food) -"
+                        android:textColor="#444"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/day_after_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+                        android:text="2"
+                        android:textColor="#37b10e"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:text="Day time (After food) -"
-                    android:textColor="#444"
-                    android:textSize="13sp" />
-                <TextView
-                    android:id="@+id/day_after_food"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:text="2"
-                    android:textColor="#37b10e"
-                    android:textSize="13sp" />
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+
+                        android:text="Night (After food) -"
+                        android:textColor="#444"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/night_after_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+                        android:text=" 2 "
+
+                        android:textColor="#37b10e"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/before_food"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/afterfood"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-                >
 
-                <TextView
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+                        android:text="Day (Before food) -"
+                        android:textColor="#444"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/day_before_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+                        android:text="2"
+                        android:textColor="#37b10e"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
 
-                    android:text="Night time (After food) -"
-                    android:textColor="#444"
-                    android:textSize="13sp" />
-                <TextView
-                    android:id="@+id/night_after_food"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:textStyle="bold"
+                    >
 
-                    android:text=" 2 "
-                    android:textColor="#37b10e"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+
+                        android:text="Night (before) -"
+                        android:textColor="#444"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/night_before_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:padding="4dp"
+                        android:text=" 2 "
+
+                        android:textColor="#37b10e"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/before_food"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_below="@+id/afterfood"
-            >
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="0dp"
-                    android:padding="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:text="Day time (Before food) -"
-                    android:textColor="#444"
-                    android:textSize="13sp" />
-                <TextView
-                    android:id="@+id/day_before_food"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:text="2"
-                    android:textColor="#37b10e"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
-
-                    android:text="Night time (before) -"
-                    android:textColor="#444"
-                    android:textSize="13sp" />
-                <TextView
-                    android:id="@+id/night_before_food"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="6dp"
-                    android:padding="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:textStyle="bold"
-
-                    android:text=" 2 "
-                    android:textColor="#37b10e"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/delete"
@@ -333,9 +328,32 @@ android:fontFamily="sans-serif-condensed-light"
             android:buttonTint="#fff"
             android:shadowColor="@color/white"
             android:textColor="@color/white" />
+        <LinearLayout
+            android:id="@+id/expand_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="20dp"
 
+android:layout_below="@id/delete"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/edit_text">
+
+            <ImageView
+                android:id="@+id/expand"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="right"
+                android:layout_marginLeft="0dp"
+                android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:buttonTint="#fff"
+                android:shadowColor="@color/white"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
 
     </RelativeLayout>
-
 
 </LinearLayout>

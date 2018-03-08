@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -150,6 +151,27 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
             }
         });
 
+        holder.expand_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (holder.expand_shrink.getVisibility() == View.GONE) {
+                    holder.expand_shrink.setVisibility(View.VISIBLE);
+                    holder.expand.setBackground(ctx.getDrawable(R.drawable.ic_keyboard_arrow_up_black_24dp));
+                } else if (holder.expand_shrink.getVisibility() == View.VISIBLE) {
+                    holder.expand_shrink.setVisibility(View.GONE);
+                    holder.expand.setBackground(ctx.getDrawable(R.drawable.ic_keyboard_arrow_down_black_24dp));
+
+                } else {
+                    holder.expand_shrink.setVisibility(View.VISIBLE);
+                    holder.expand.setBackground(ctx.getDrawable(R.drawable.ic_keyboard_arrow_up_black_24dp));
+
+                }
+
+            }
+
+        });
+
 
 //            holder.mUri.setAlpha(position % 2 == 0 ? 1.0f : 0.54f);
 //            holder.mPath.setAlpha(position % 2 == 0 ? 1.0f : 0.54f);
@@ -164,6 +186,9 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
 
     static class UriViewHolder extends RecyclerView.ViewHolder {
 
+        private  LinearLayout expand_layout;
+        private  RelativeLayout expand_shrink;
+        private  ImageView expand;
         private ImageView chk_selected;
         private ImageView delete;
         private LinearLayout csb;
@@ -182,6 +207,9 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
             chk_selected = (ImageView) contentView.findViewById(R.id.chk_selected);
             delete = (ImageView) contentView.findViewById(R.id.delete);
             csb = (LinearLayout) contentView.findViewById(R.id.csb);
+            expand_layout = (LinearLayout) contentView.findViewById(R.id.expand_layout);
+            expand = (ImageView) contentView.findViewById(R.id.expand);
+            expand_shrink = (RelativeLayout) contentView.findViewById(R.id.expand_shrink);
             medicine_name = (TextView) contentView.findViewById(R.id.medicine_name);
             description = (TextView) contentView.findViewById(R.id.description);
             day_after_food = (TextView) contentView.findViewById(R.id.day_after_food);

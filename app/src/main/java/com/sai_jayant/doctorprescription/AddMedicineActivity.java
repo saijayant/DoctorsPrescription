@@ -102,8 +102,6 @@ public class AddMedicineActivity extends AppCompatActivity {
         });
 
 
-
-
         tick_buttom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,7 +139,7 @@ public class AddMedicineActivity extends AppCompatActivity {
         sqLiteDatabase = dbHelper.getReadableDatabase();
 
         contactNumberLists = new ArrayList<Medicine>();
-        contactNumberLists=dbHelper.GetAllData(sqLiteDatabase);
+        contactNumberLists = dbHelper.GetAllData(sqLiteDatabase);
 
         LinearLayoutManager horizontal
                 = new LinearLayoutManager(AddMedicineActivity.this, LinearLayoutManager.VERTICAL, false);
@@ -173,8 +171,8 @@ public class AddMedicineActivity extends AppCompatActivity {
                 String medicine_type = data.getStringExtra("medicine_type");
                 dbHelper = new DbHelper(this);
                 sqLiteDatabase = dbHelper.getWritableDatabase();
-                dbHelper.insertData(sqLiteDatabase,medicine_name,medicine_description,day_after_food,day_before_food,
-                        night_after_food,night_before_food,"true",medicine_type);
+                dbHelper.insertData(sqLiteDatabase, medicine_name, medicine_description, day_after_food, day_before_food,
+                        night_after_food, night_before_food, "true", medicine_type);
 
 
                 Medicine m = new Medicine();
@@ -191,12 +189,23 @@ public class AddMedicineActivity extends AppCompatActivity {
                 int position = adapter1.getItemCount();
                 // Add an item to animals list
 
-                contactNumberLists.add(position, m);
-                adapter1.notifyItemInserted(position);
-                // Scroll to newly added item position
-                recyclerView.scrollToPosition(position);
-                adapter1.notifyDataSetChanged();
-                // Show the added item label
+                contactNumberLists.clear();
+
+                dbHelper = new DbHelper(this);
+                sqLiteDatabase = dbHelper.getReadableDatabase();
+
+                contactNumberLists = new ArrayList<Medicine>();
+                contactNumberLists = dbHelper.GetAllData(sqLiteDatabase);
+
+//                contactNumberLists.add(position, m);
+//                adapter1.notifyItemInserted(position);
+//                // Scroll to newly added item position
+//                recyclerView.scrollToPosition(position);
+                adapter1 = new MedicineAdapter(getApplicationContext(), contactNumberLists);
+
+                recyclerView.setAdapter(adapter1);
+                recyclerView.setNestedScrollingEnabled(false);
+                recyclerView.setHasFixedSize(true);                // Show the added item label
 //                    Toast.makeText(, "Added : " + city, Toast.LENGTH_SHORT).show();
 
                 Log.d("citylist", "onActivityResult: " + medicine_name.toString());

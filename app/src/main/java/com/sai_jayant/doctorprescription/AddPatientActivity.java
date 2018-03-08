@@ -19,7 +19,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,35 +69,18 @@ public class AddPatientActivity extends AppCompatActivity {
     private String Addresses;
     private double Lati;
     private double Long;
-
+    private EditText patient_name,weight,age,number,address;
+    RecyclerView medicineList;
+    Spinner gender;
+    FloatingActionButton panic_fab;
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.panic_layout);
+        setContentView(R.layout.add_patient_child);
 
-
-
-            z = (Button) findViewById(R.id.select_img);
-        tick_buttom = (ImageView) findViewById(R.id.tick_buttom);
-        FloatingActionButton panic_fab = (FloatingActionButton) findViewById(R.id.panic_fab);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-
-
-        contactNumberLists = new ArrayList<Medicine>();
-
-        LinearLayoutManager horizontal
-                = new LinearLayoutManager(AddPatientActivity.this, LinearLayoutManager.VERTICAL, false);
-
-        recyclerView.setLayoutManager(horizontal);
-
-        adapter1 = new MedicineAdapter(getApplicationContext(), contactNumberLists);
-
-        recyclerView.setAdapter(adapter1);
-
-
-
+        intUi();
         z.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,66 +112,34 @@ public class AddPatientActivity extends AppCompatActivity {
 
     }
 
+    private void intUi() {
+        z = (Button) findViewById(R.id.select_img);
+        patient_name = (EditText) findViewById(R.id.patient_name);
+        weight = (EditText) findViewById(R.id.weight);
+        age = (EditText) findViewById(R.id.age);
+        number = (EditText) findViewById(R.id.number);
+        address = (EditText) findViewById(R.id.address);
+        medicineList = (RecyclerView) findViewById(R.id.medicineList);
+        gender = (Spinner) findViewById(R.id.gender);
+        tick_buttom = (ImageView) findViewById(R.id.tick_buttom);
+        panic_fab = (FloatingActionButton) findViewById(R.id.panic_fab);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Check which request we're responding to
-        if (requestCode == OPEN_MEDIA_PICKER) {
-            // Make sure the request was successful
-            if (resultCode == RESULT_OK && data != null) {
+        contactNumberLists = new ArrayList<Medicine>();
 
-                ArrayList<String> result = data.getStringArrayListExtra("result");
+        LinearLayoutManager horizontal
+                = new LinearLayoutManager(AddPatientActivity.this, LinearLayoutManager.VERTICAL, false);
 
-                if (selectionResult.size() + result.size() <= 20) {
+        recyclerView.setLayoutManager(horizontal);
 
+        adapter1 = new MedicineAdapter(getApplicationContext(), contactNumberLists);
 
-                    String s;
-
-                    for (int i = 0; i < result.size(); i++) {
-                        int n = selectionResult.size() + 1;
-                        s = result.get(i);
-
-
-                        InputStream is = null;
-
-
-                        Log.d("image", "onActivityResult: path " + s);
-                        Log.d("image", "onActivityResult: " + s);
-                        Log.d("image", "onActivityResult: mAdapter.getItemCount()+i " + mAdapter.getItemCount() + i);
-                        selectionResult.add(mAdapter.getItemCount(), s);
-                        mAdapter.notifyItemInserted(mAdapter.getItemCount());
-                    }
-
-
-                    mAdapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(this, "Max limit is 20 ", Toast.LENGTH_LONG).show();
-                }
-
-                Log.d("media", "onActivityResult: " + selectionResult.toString());
-
-
-
-            }
-        }
-
-
-        if (requestCode == RESULT_PICK_CONTACT) {
-            if (resultCode == RESULT_OK) {
-
-
-            } else if (resultCode == RESULT_CANCELED) {
-                System.out.println("User closed the picker without selecting items.");
-            }
-        }
-
-        if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK && null != data) {
-
-
-        }
+        recyclerView.setAdapter(adapter1);
     }
+
+
+
 
 
 }
