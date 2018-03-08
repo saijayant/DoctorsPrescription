@@ -66,6 +66,37 @@ public class AddMedicineActivity extends AppCompatActivity {
 
         intUi();
 
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                int totalScroll = appBarLayout.getTotalScrollRange();
+                int currentScroll = totalScroll + verticalOffset;
+                int scrollRange = -1;
+                boolean isShow = false;
+
+
+                if ((currentScroll) < 50) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        Window window = getWindow();
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        window.setStatusBarColor(getResources().getColor(R.color.clip_color));
+                        collapsingToolbarLayout.setTitle("Trip Expense ");
+                        collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+                    }
+                } else {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        Window w = getWindow();
+                        w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+                        w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+                        collapsingToolbarLayout.setTitle(" ");
+                        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
+
+
+                    }
+                }
+            }
+        });
 
 
 
@@ -100,6 +131,8 @@ public class AddMedicineActivity extends AppCompatActivity {
         tick_buttom = (ImageView) findViewById(R.id.tick_buttom);
         panic_fab = (FloatingActionButton) findViewById(R.id.panic_fab);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
+        appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
 
 
         contactNumberLists = new ArrayList<Medicine>();
