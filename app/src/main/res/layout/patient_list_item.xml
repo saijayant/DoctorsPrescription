@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:elevation="4dp"
+    android:layout_margin="3dp"
+
+ >
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/essential_back"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:padding="6dp">
+
+        <LinearLayout
+            android:id="@+id/csb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/check_backgroung"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            >
+
+            <ImageView
+                android:id="@+id/chk_selected"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="0dp"
+                android:background="@drawable/ic_check_gray_24dp"
+                android:buttonTint="#fff"
+                android:shadowColor="@color/white"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/txt_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="4dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="8dp"
+            android:text="Item Name"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_contact_mail_black_24dp"
+            android:textColor="@color/text_gray_one"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/txt_Number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/txt_Name"
+            android:padding="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="0dp"
+            android:text="Item Number"
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
+
+
+        <View
+            android:id="@+id/day_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/txt_Number"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="32dp"
+            android:background="@color/gainsboro" />
+
+
+
+
+        <TextView
+            android:id="@+id/itemShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day_divider"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="6dp"
+            android:padding="4dp"
+            android:text="Share your details always "
+            android:textColor="@color/gray"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_delete_black_24dp"
+            android:buttonTint="#fff"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:shadowColor="@color/white"
+            android:textColor="@color/white" />
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

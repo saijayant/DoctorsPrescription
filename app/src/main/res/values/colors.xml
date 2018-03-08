@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3fb58e</color>
+    <color name="colorPrimaryDark">#309f6f</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="primary">#7AA4D5</color>
+    <color name="primary_dark">#165E8B</color>
+    <color name="accent">#7AA4D5</color>
+    <color name="clip_color">#ec326a</color>
+    <color name="pure_orange_light">#fa8b6c</color>
+    <color name="pure_orange">#ed481a</color>
+    <color name="white">#ffff</color>
+    <color name="green">#5aaf4b</color>
+    <color name="light_green">#66c73a</color>
+    <color name="text_gray_one">#4b4b4b</color>
+    <color name="darker_gray">#8b8b8b</color>
+    <color name="text_gray_two">#393939</color>
+    <color name="text_gray_thdsbvwo">#a9c65b</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="pb_blue">#00ffffff</color>
+    <color name="pb_red">#ed481a</color>
+
+
+    <color name="toggle_hover">@color/gray</color>
+    <color name="toggle_normal">@color/gainsboro</color>
+    <color name="toggle_active">@color/silver</color>
+    <color name="toggle_normal_off">@color/darkgray</color>
+
+    <color name="gainsboro">#DCdCdC</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="darkgray">#a9a9a9</color>
+    <color name="gray">#808080</color>
+    <color name="choose_city_hint_color">#d4d3d3</color>
+    <color name="titleTabColor">#ffffff</color>
+    <color name="titleTextColor">#ffffff</color>
+
+    <color name="titleSelectedTabColor">#fcfcfc</color>
+
+    <color name="viewBg">#f1f5f8</color>
+    <color name="album_title">#4c4c4c</color>
+    <color name="clip1">#fa456c</color>
+    <color name="clip2">#fa6753</color>
+    <color name="clip3">#bcfc1d54</color>
+    <color name="clip4">#b2fc460f</color>
+    <color name="clip_color_one">#fa6753</color>
+    <color name="clip_color_two">#d25726</color>
+
+    <color name="calendar_active_month_bg">#ffffff</color>
+    <color name="calendar_current_day_text">#000</color>
+    <color name="calendar_month_divider">#EAEAEA</color>
+    <color name="calendar_inactive_month_bg">#f5f5f5</color>
+    <color name="calendar_selected_day_bg">#fc7b36</color>
+    <color name="calendar_highlighted_day_bg">#ccffcc</color>
+    <color name="calendar_text_inactive">#cccccc</color>
+    <color name="calendar_text_active">#555555</color>
+    <color name="calendar_text_selected">#ffffffff</color>
+    <color name="calendar_text_unselectable">#cccccc</color>
+
+    <color name="persian_green_primary">#0DAC8F</color>
+    <color name="persian_green_dark">#0A927A</color>
+    <color name="persian_green_accent">#0A927A</color>
+    <color name="pink_primary">#EB1E63</color>
+    <color name="pink_dark">#C0175C</color>
+    <color name="pink_accent">#C0175C</color>
+    <color name="royal_blue_primary">#4C63E2</color>
+    <color name="royal_blue_dark">#4055BF</color>
+    <color name="royal_blue_accent">#4055BF</color>
+    <color name="purple_primary">#9C28B1</color>
+    <color name="purple_dark">#7A1FA2</color>
+    <color name="purple_accent">#7A1FA2</color>
+    <color name="orange_accent">#F3A62E</color>
+    <color name="indigo">#3E50AE</color>
+    <color name="pink">#FF427C</color>
+    <color name="grey">#C2C2C2</color>
+</resources>

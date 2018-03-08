@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="180"
+                android:endColor="@color/clip2"
+                android:startColor="@color/clip1"
+                android:type="linear" />
+        </shape>
+        <!--<bitmap-->
+            <!--android:gravity="center"-->
+            <!--android:src="@drawable/soloo"/>-->
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/transparent"/>
+        </shape>
+    </item>
+
+
+
+    <item
+        android:bottom="-100dp"
+        android:left="0dp"
+        android:right="-330dp"
+        android:top="220dp">
+        <rotate
+            android:fromDegrees="-13"
+            android:pivotX="0%"
+            android:pivotY="100%">
+            <shape
+                android:shape="rectangle">
+                <solid
+                    android:color="@android:color/white"/>
+            </shape>
+        </rotate>
+    </item>
+</layer-list>
