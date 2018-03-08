@@ -27,13 +27,19 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/doc_wall"
+
+
+                >
 
                 <ImageView
+
                     android:id="@+id/profile_photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
+                    android:background="#6c002366"
                     app:layout_collapseMode="parallax" />
             </FrameLayout>
 
