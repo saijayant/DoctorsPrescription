@@ -1,6 +1,9 @@
 package com.sai_jayant.doctorprescription;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,9 @@ import java.util.ArrayList;
 public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriViewHolder> {
     private final Context ctx;
     private final ArrayList<Medicine> listName;
+    private DbHelper dbHelper;
+    private SQLiteDatabase sqLiteDatabase;
+
 
 
     public MedicineAdapter(Context applicationContext, ArrayList<Medicine> contactNameLists) {
@@ -28,13 +34,13 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
 
 
     @Override
-    public MedicineAdapter.UriViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MedicineAdapter.UriViewHolder(
+    public UriViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new UriViewHolder(
                 LayoutInflater.from(parent.getContext()).inflate(R.layout.medicine_item_list, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(final MedicineAdapter.UriViewHolder holder, final int position) {
+    public void onBindViewHolder(final UriViewHolder holder, final int position) {
 
 
 //
@@ -78,9 +84,21 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
             @Override
             public void onClick(View view) {
                 // Get the clicked item label
+                AlertDialog.Builder alertbox = new AlertDialog.Builder(view.getRootView().getContext());
+                alertbox.setMessage("Are sure you want to delete ?");
+                alertbox.setTitle("Warning !");
 
-                // Remove the item on remove/button click
-                listName.remove(position);
+                alertbox.setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0,
+                                                int arg1) {
+                                // Remove the item on remove/button click
+                                dbHelper = new DbHelper(ctx);
+                                sqLiteDatabase = dbHelper.getWritableDatabase();
+                                dbHelper.DeleteRecords(sqLiteDatabase,listName.get(position).getId());
+
+                                listName.remove(position);
 
                 /*
                     public final void notifyItemRemoved (int position)
@@ -95,7 +113,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                     Parameters
                         position : Position of the item that has now been removed
                 */
-                notifyItemRemoved(position);
+                                notifyItemRemoved(position);
 
                 /*
                     public final void notifyItemRangeChanged (int positionStart, int itemCount)
@@ -111,11 +129,22 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                         positionStart : Position of the first item that has changed
                         itemCount : Number of items that have changed
                 */
-                notifyItemRangeChanged(position, listName.size());
+                                notifyItemRangeChanged(position, listName.size());
 
-                // Show the removed item label
-                notifyDataSetChanged();
+                                // Show the removed item label
+                                notifyDataSetChanged();
 //                changeSetting(position,holder,mDataName);
+
+                            }
+                        });
+                alertbox.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                alertbox.show();
+
 
 
             }

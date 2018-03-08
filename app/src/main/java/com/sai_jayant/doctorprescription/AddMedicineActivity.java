@@ -3,6 +3,7 @@ package com.sai_jayant.doctorprescription;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -45,6 +46,8 @@ public class AddMedicineActivity extends AppCompatActivity {
     private ArrayList<Medicine> contactNumberLists;
     private MedicineAdapter adapter1;
     FloatingActionButton panic_fab;
+    private DbHelper dbHelper;
+    private SQLiteDatabase sqLiteDatabase;
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -134,8 +137,11 @@ public class AddMedicineActivity extends AppCompatActivity {
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
 
+        dbHelper = new DbHelper(this);
+        sqLiteDatabase = dbHelper.getReadableDatabase();
 
         contactNumberLists = new ArrayList<Medicine>();
+        contactNumberLists=dbHelper.GetAllData(sqLiteDatabase);
 
         LinearLayoutManager horizontal
                 = new LinearLayoutManager(AddMedicineActivity.this, LinearLayoutManager.VERTICAL, false);
@@ -145,6 +151,8 @@ public class AddMedicineActivity extends AppCompatActivity {
         adapter1 = new MedicineAdapter(getApplicationContext(), contactNumberLists);
 
         recyclerView.setAdapter(adapter1);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setHasFixedSize(true);
 
     }
 
@@ -163,6 +171,10 @@ public class AddMedicineActivity extends AppCompatActivity {
                 String night_before_food = data.getStringExtra("night_before_food");
                 String night_after_food = data.getStringExtra("night_after_food");
                 String medicine_type = data.getStringExtra("medicine_type");
+                dbHelper = new DbHelper(this);
+                sqLiteDatabase = dbHelper.getWritableDatabase();
+                dbHelper.insertData(sqLiteDatabase,medicine_name,medicine_description,day_after_food,day_before_food,
+                        night_after_food,night_before_food,"true",medicine_type);
 
 
                 Medicine m = new Medicine();

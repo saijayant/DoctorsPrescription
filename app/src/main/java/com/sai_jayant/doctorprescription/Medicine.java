@@ -9,6 +9,44 @@ public class Medicine {
     Boolean isSelected;
     String medicine_name;
     String medicine_description;
+    String daytime_after_food;
+    String daytime_before_food;
+    String nighttime_after_food;
+    String nighttime_before_food;
+    String medicine_type;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    int id;
+
+
+
+    public Medicine(String string, String string1, String string2, String string3, String string4, String string5, String string6, String string7,int ids) {
+        medicine_name = string;
+        medicine_description = string1;
+        daytime_after_food = string2;
+        daytime_before_food = string3;
+        nighttime_after_food = string4;
+        nighttime_before_food = string5;
+        if (string6.equalsIgnoreCase("true")) {
+            isSelected = true;
+        } else {
+            isSelected = false;
+        }
+        medicine_type=string7;
+        id=ids;
+    }
+
+    public Medicine() {
+
+    }
+
 
     public String getMedicine_type() {
         return medicine_type;
@@ -18,7 +56,6 @@ public class Medicine {
         this.medicine_type = medicine_type;
     }
 
-    String medicine_type;
 
     public String getMedicine_name() {
         return medicine_name;
@@ -69,10 +106,6 @@ public class Medicine {
         this.nighttime_after_food = nighttime_after_food;
     }
 
-    String daytime_after_food;
-    String daytime_before_food;
-    String nighttime_before_food;
-    String nighttime_after_food;
 
     public Boolean getSelected() {
         return isSelected;
@@ -81,8 +114,6 @@ public class Medicine {
     public void setSelected(Boolean selected) {
         isSelected = selected;
     }
-
-
 
 
 }
