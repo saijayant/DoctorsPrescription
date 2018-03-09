@@ -50,15 +50,13 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="0dp"
-                android:background="@drawable/normal_down"
                 app:layout_collapseMode="pin">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     android:layout_alignParentTop="true">
 
                     <ImageView
@@ -67,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="0dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="30dp"
                         android:padding="2dp"
                         android:src="@drawable/ic_arrow_back_black_24dp" />
 
@@ -75,11 +73,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="40dp"
-
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="sans-serif-condensed-light"
                         android:padding="2dp"
-                        android:text="Add Medicine "
-                        android:textColor="@color/white"
+                        android:text="Add Medicine"
+                        android:textColor="#fff"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -89,7 +87,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="30dp"
                         android:padding="2dp"
                         android:src="@drawable/ic_check_black_24dp" />
                 </RelativeLayout>
