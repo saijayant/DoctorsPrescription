@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -21,9 +23,9 @@ import java.util.ArrayList;
  * Created by Preet on 1/12/18.
  */
 
-public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriViewHolder> {
+public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriViewHolder>implements Filterable {
     private final Context ctx;
-    private final ArrayList<Medicine> listName;
+    private ArrayList<Medicine> listName;
     private DbHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
 
@@ -61,7 +63,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
         if (listName.get(position).getSelected() == true) {
             holder.chk_selected.setVisibility(View.VISIBLE);
         }else if (listName.get(position).getSelected() == false) {
-            holder.chk_selected.setVisibility(View.GONE);
+            holder.chk_selected.setVisibility(View.INVISIBLE);
 
         }
 
@@ -190,6 +192,15 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
         return listName == null ? 0 : listName.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return null;
+    }
+    public void updateList(ArrayList<Medicine> temp) {
+        listName = temp;
+        notifyDataSetChanged();
+
+    }
 
     static class UriViewHolder extends RecyclerView.ViewHolder {
 

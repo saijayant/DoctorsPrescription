@@ -19,6 +19,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -85,6 +87,7 @@ public class AddPatientActivity extends AppCompatActivity {
     private DbHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
     private String date_now;
+    private EditText search;
 
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -169,7 +172,7 @@ public class AddPatientActivity extends AppCompatActivity {
 
                                     int pos = count + 1;
 
-                                    med = med + "\n\nMedicine " + pos + "---" + "" + contactNumberLists.get(i).getMedicine_name() + " (" + contactNumberLists.get(i).getMedicine_type() + ")" + "\n\n" + "Before food (Morning) - " + contactNumberLists.get(i).getDaytime_before_food() + "  " + "\nAfter lunch - " + contactNumberLists.get(i).getDaytime_after_food() + "\nBefore food (Evening) - " + contactNumberLists.get(i).getNighttime_after_food() + "\nAfter dinner - " + contactNumberLists.get(i).getNighttime_after_food() + " \n...................................................................";
+                                    med = med + "\n\nMedicine " + pos + " --- " + "" + contactNumberLists.get(i).getMedicine_name() + " (" + contactNumberLists.get(i).getMedicine_type() + ")" + "\n\n" + "Before food (Morning) - " + contactNumberLists.get(i).getDaytime_before_food() + "  " + "\nAfter lunch - " + contactNumberLists.get(i).getDaytime_after_food() + "\nBefore food (Evening) - " + contactNumberLists.get(i).getNighttime_after_food() + "\nAfter dinner - " + contactNumberLists.get(i).getNighttime_after_food() + " \n...................................................................";
                                 }
                             }
                         }
@@ -204,6 +207,7 @@ public class AddPatientActivity extends AppCompatActivity {
         age = (EditText) findViewById(R.id.age);
         number = (EditText) findViewById(R.id.number);
         address = (EditText) findViewById(R.id.address);
+        search = (EditText) findViewById(R.id.search);
         gender = (Spinner) findViewById(R.id.gender);
         tick_buttom = (ImageView) findViewById(R.id.tick_buttom);
         recyclerView = (RecyclerView) findViewById(R.id.medicineList);
@@ -240,6 +244,47 @@ public class AddPatientActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
 
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+
+            }
+        });
+
+
+    }
+
+
+    void filter(String text) {
+        ArrayList<Medicine> temp = new ArrayList<>();
+
+        for (Medicine d :contactNumberLists ) {
+            //or use .equal(text) with you want equal match
+            //use .toLowerCase() for better matches
+            Log.d("filter", "filter: text " + ((d.getMedicine_name()) + ""));
+            Log.d("filter", "filter: serch view " + text);
+
+            if (((d.getMedicine_name()) + "").contains(text)) {
+
+                temp.add(d);
+
+            }
+            Log.d("filter", "filter: size " + temp.size());
+            Log.d("filter", "filter: size " + temp);
+
+
+        }
+        //update recyclerview
+        adapter1.updateList(temp);
     }
 
 

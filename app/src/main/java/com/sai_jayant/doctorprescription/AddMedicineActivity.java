@@ -19,11 +19,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +51,7 @@ public class AddMedicineActivity extends AppCompatActivity {
     FloatingActionButton panic_fab;
     private DbHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
+    private EditText search;
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -134,6 +138,7 @@ public class AddMedicineActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+        search = (EditText) findViewById(R.id.search);
 
         dbHelper = new DbHelper(this);
         sqLiteDatabase = dbHelper.getReadableDatabase();
@@ -151,6 +156,22 @@ public class AddMedicineActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter1);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(true);
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+
+            }
+        });
 
     }
 
@@ -214,7 +235,28 @@ public class AddMedicineActivity extends AppCompatActivity {
 
         }
     }
+    void filter(String text) {
+        ArrayList<Medicine> temp = new ArrayList<>();
 
+        for (Medicine d :contactNumberLists ) {
+            //or use .equal(text) with you want equal match
+            //use .toLowerCase() for better matches
+            Log.d("filter", "filter: text " + ((d.getMedicine_name()) + ""));
+            Log.d("filter", "filter: serch view " + text);
+
+            if (((d.getMedicine_name()) + "").contains(text)) {
+
+                temp.add(d);
+
+            }
+            Log.d("filter", "filter: size " + temp.size());
+            Log.d("filter", "filter: size " + temp);
+
+
+        }
+        //update recyclerview
+        adapter1.updateList(temp);
+    }
 }
 
 

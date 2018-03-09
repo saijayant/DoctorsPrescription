@@ -68,7 +68,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="2dp"
-                    android:visibility="gone"
                     android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
                     android:src="@drawable/ic_check_gray_24dp"
