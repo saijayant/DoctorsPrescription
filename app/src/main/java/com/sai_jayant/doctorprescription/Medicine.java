@@ -36,7 +36,7 @@ public class Medicine {
         nighttime_before_food = string5;
         if (string6.equalsIgnoreCase("true")) {
             isSelected = true;
-        } else {
+        } else if (string6.equalsIgnoreCase("false")) {
             isSelected = false;
         }
         medicine_type=string7;

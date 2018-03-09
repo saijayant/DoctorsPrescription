@@ -172,7 +172,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                 dbHelper = new DbHelper(this);
                 sqLiteDatabase = dbHelper.getWritableDatabase();
                 dbHelper.insertData(sqLiteDatabase, medicine_name, medicine_description, day_after_food, day_before_food,
-                        night_after_food, night_before_food, "true", medicine_type);
+                        night_after_food, night_before_food, "false", medicine_type);
 
 
                 Medicine m = new Medicine();
@@ -183,7 +183,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                 m.setNighttime_after_food(night_after_food);
                 m.setNighttime_before_food(night_before_food);
                 m.setMedicine_type(medicine_type);
-                m.setSelected(true);
+                m.setSelected(false);
 
 
                 int position = adapter1.getItemCount();

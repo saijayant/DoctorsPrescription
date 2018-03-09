@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,8 +55,14 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
         holder.night_before_food.setText(listName.get(position).getNighttime_before_food());
         holder.med_type_.setText(listName.get(position).getMedicine_type());
 
+
+        Log.d("true", "onBindViewHolder: "+listName.get(position).getSelected());
+
         if (listName.get(position).getSelected() == true) {
             holder.chk_selected.setVisibility(View.VISIBLE);
+        }else if (listName.get(position).getSelected() == false) {
+            holder.chk_selected.setVisibility(View.GONE);
+
         }
 
 

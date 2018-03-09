@@ -54,20 +54,24 @@
 
             <LinearLayout
                 android:id="@+id/csb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_gravity="center"
+                android:layout_height="25dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="4dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/check_backgroung">
 
                 <ImageView
                     android:id="@+id/chk_selected"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
-                    android:background="@drawable/ic_check_gray_24dp"
+                    android:src="@drawable/ic_check_gray_24dp"
                     android:buttonTint="#fff"
                     android:shadowColor="@color/white"
                     android:textColor="@color/white" />

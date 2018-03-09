@@ -101,6 +101,7 @@ public class PatientHistoryActivity extends AppCompatActivity {
         adapter1 = new PatientAdapter(getApplicationContext(), patientArrayList);
 
         recyclerView.setAdapter(adapter1);
+        recyclerView.setNestedScrollingEnabled(false);
 
 
 
