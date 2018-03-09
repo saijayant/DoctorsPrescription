@@ -57,6 +57,29 @@ android:fitsSystemWindows="true">
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="60dp" />
 
+            <EditText
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:textColorHint="@color/gray"
+
+                android:layout_gravity="center"
+                android:elevation="4dp"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
+                android:padding="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="sans-serif-condensed-light"
+                android:hint="Search ... "
+                android:inputType="textPersonName"
+                android:textColor="@color/clip_color_one"
+                android:textSize="16sp" />
+
+
 
         </RelativeLayout>
 
@@ -133,7 +156,7 @@ android:fitsSystemWindows="true">
     android:layout_gravity="right|bottom"
     android:layout_alignParentRight="true"
     android:layout_alignParentBottom="true"
-
+android:visibility="gone"
     android:layout_marginRight="30dp"
     android:src="@drawable/ic_add_black_24dp"
     app:elevation="6dp"

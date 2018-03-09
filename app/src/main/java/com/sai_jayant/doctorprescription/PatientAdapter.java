@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -19,9 +21,9 @@ import java.util.ArrayList;
  * Created by Preet on 1/12/18.
  */
 
-public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewHolder> {
+public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewHolder> implements Filterable {
     private final Context ctx;
-    private final ArrayList<Patient> listName;
+    private ArrayList<Patient> listName;
     private DbHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
 
@@ -178,7 +180,16 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewH
         return listName == null ? 0 : listName.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return null;
+    }
 
+    public void updateList(ArrayList<Patient> temp) {
+        listName = temp;
+        notifyDataSetChanged();
+
+    }
     static class UriViewHolder extends RecyclerView.ViewHolder {
 
         private  LinearLayout expand_layout;
