@@ -23,6 +23,16 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String ISSELECTED = "isselected";
     private static final String MEDICINETYPE = "medicine_type";
     private static final String ID = "id";
+    public static final String PATIENT_TABLE = "patientinfo";
+    public static final String PATIENTNAME = "patient_name";
+    public static final String GENDER = "gender";
+    public static final String AGE = "age";
+    public static final String WEIGHT = "weight";
+    public static final String MOBILE = "mobile";
+    public static final String ADDRESS = "address";
+    public static final String TIME = "time";
+    public static final String MEDICINE = "medicine";
+
 
 
     public DbHelper(Context context) {
@@ -40,6 +50,14 @@ public class DbHelper extends SQLiteOpenHelper {
                 + ISSELECTED+" TEXT,"
                 + MEDICINETYPE+" TEXT,"
         +ID+" INTEGER PRIMARY KEY AUTOINCREMENT);");
+        db.execSQL("CREATE TABLE "+PATIENT_TABLE+"("+ PATIENTNAME+" TEXT,"+ GENDER+" TEXT,"
+                + AGE+" TEXT,"
+                + WEIGHT+" TEXT,"
+                + MOBILE+" TEXT,"
+                + ADDRESS+" TEXT,"
+                + TIME+" TEXT,"
+                + MEDICINE+" TEXT,"
+                +ID+" INTEGER PRIMARY KEY AUTOINCREMENT);");
 
     }
 
@@ -55,6 +73,26 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(ISSELECTED, isselected);
         values.put(MEDICINETYPE, medictype);
         db.insert(TABLENAME, null, values);
+
+    }
+
+
+
+
+    public void insertPatientDetails(SQLiteDatabase sqLiteDatabase,String name,String gender,
+                                     String age,String weight,String mobile,String address,
+                                     String time,String medic){
+        ContentValues values = new ContentValues();
+        values.put(PATIENTNAME, name);
+        values.put(GENDER, gender);
+        values.put(AGE, age);
+        values.put(WEIGHT, weight);
+        values.put(MOBILE, mobile);
+        values.put(ADDRESS, address);
+        values.put(TIME, time);
+        values.put(MEDICINE, medic);
+        sqLiteDatabase.insert(PATIENT_TABLE, null, values);
+
 
     }
 
@@ -87,8 +125,40 @@ public class DbHelper extends SQLiteOpenHelper {
         c.close();
         return result;
     }
+
+
+
+    public ArrayList<Patient> GetAllPatient(SQLiteDatabase sqLiteDatabase) {
+        ArrayList<Patient> result = new ArrayList<>();
+        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM "+PATIENT_TABLE,null);
+
+        while (c.moveToNext()) {
+            result.add(new Patient(
+                            c.getString(c.getColumnIndex(PATIENTNAME)),
+                            c.getString(c.getColumnIndex(GENDER)),
+                            c.getString(c.getColumnIndex(AGE)),
+                            c.getString(c.getColumnIndex(WEIGHT)),
+                            c.getString(c.getColumnIndex(MOBILE)),
+                            c.getString(c.getColumnIndex(ADDRESS)),
+                            c.getString(c.getColumnIndex(TIME)),
+                            c.getString(c.getColumnIndex(MEDICINE)),
+                            c.getInt(c.getColumnIndex(ID))
+
+
+
+                    )
+            );
+        }
+        c.close();
+        return result;
+    }
     public void DeleteRecords(SQLiteDatabase sqLiteDatabase,int id){
         String sql = "DELETE FROM " +TABLENAME+ " WHERE " +ID+ "=" +id;
+        sqLiteDatabase.execSQL(sql);
+    }
+
+    public void DeletePatientRecords(SQLiteDatabase sqLiteDatabase,int id){
+        String sql = "DELETE FROM " +PATIENT_TABLE+ " WHERE " +ID+ "=" +id;
         sqLiteDatabase.execSQL(sql);
     }
 

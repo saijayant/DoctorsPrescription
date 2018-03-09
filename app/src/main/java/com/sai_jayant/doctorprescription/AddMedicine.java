@@ -168,15 +168,15 @@ public class AddMedicine extends AppCompatActivity {
 // Selection of the spinner
 
 // Application of the Array to the Spinner
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, colors);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.single_liner_show, colors);
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.single_liner); // The drop down view
         day_after_food.setAdapter(spinnerArrayAdapter);
         day_before_food.setAdapter(spinnerArrayAdapter);
         night_after_food.setAdapter(spinnerArrayAdapter);
         night_before_food.setAdapter(spinnerArrayAdapter);
 
-        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, type);
-        spinnerArrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(this,R.layout.single_liner_show, type);
+        spinnerArrayAdapter1.setDropDownViewResource(R.layout.single_liner); // The drop down view
         medicine_type.setAdapter(spinnerArrayAdapter1);
     }
 

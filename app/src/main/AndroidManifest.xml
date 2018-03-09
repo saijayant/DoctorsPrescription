@@ -36,6 +36,12 @@
             android:theme="@style/AppTheme.NoActionBar"
 
             />
+        <activity android:name=".PatientHistoryActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme.NoActionBar"
+
+            />
 
 
 

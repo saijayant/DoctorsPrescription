@@ -211,14 +211,15 @@
 
                     <Spinner
                         android:id="@+id/gender"
-                        android:layout_width="100dp"
-                        android:layout_height="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="1dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:background="@drawable/edit_text"
                         android:textColor="@color/text_gray_one"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -234,22 +235,23 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="8dp"
-
+                        android:textSize="14sp"
                         android:layout_marginTop="4dp"
                         android:fontFamily="sans-serif-condensed-light"
                         android:text="Set Weight (KGs)- " />
 
                     <EditText
                         android:id="@+id/weight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="250dp"
+                        android:layout_height="25dp"
                         android:layout_marginBottom="1dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/edit_text"
                         android:fontFamily="sans-serif-condensed-light"
                         android:hint=" Eg : 65"
-                        android:inputType="textPersonName"
+                        android:inputType="numberDecimal"
                         android:textColor="@color/clip_color_one"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
 
@@ -275,15 +277,16 @@
 
                     <EditText
                         android:id="@+id/age"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="250dp"
+                        android:layout_height="25dp"
                         android:layout_marginBottom="1dp"
                         android:background="@drawable/edit_text"
                         android:fontFamily="sans-serif-condensed-light"
                         android:hint=" Eg : 40 "
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
+                        android:layout_gravity="center"
                         android:textColor="@color/clip_color_one"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
 
@@ -338,7 +341,7 @@
                         android:layout_marginBottom="1dp"
                         android:fontFamily="sans-serif-condensed-light"
                         android:inputType="number"
-
+android:maxLength="10"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="8dp"
                         android:background="@drawable/edit_text"

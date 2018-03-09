@@ -3,6 +3,7 @@ package com.sai_jayant.doctorprescription;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -49,7 +50,7 @@ public class PatientHistoryActivity extends AppCompatActivity {
 
     private int RESULT_PICK_CONTACT = 9;
     private ArrayList<Medicine> contactNumberLists;
-    private MedicineAdapter adapter1;
+    private PatientAdapter adapter1;
     private LocationManager manager;
     private LocationManager locationManager;
     private LocationListener myLocationListener;
@@ -67,6 +68,9 @@ public class PatientHistoryActivity extends AppCompatActivity {
     private String Addresses;
     private double Lati;
     private double Long;
+    private DbHelper dbHelper;
+    private SQLiteDatabase sqLiteDatabase;
+    ArrayList<Patient> patientArrayList = new ArrayList<>();
 
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -75,9 +79,13 @@ public class PatientHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.panic_layout);
 
+        dbHelper = new DbHelper(this);
+        sqLiteDatabase = dbHelper.getReadableDatabase();
+
+        patientArrayList = dbHelper.GetAllPatient(sqLiteDatabase);
 
 
-            z = (Button) findViewById(R.id.select_img);
+
         tick_buttom = (ImageView) findViewById(R.id.tick_buttom);
         FloatingActionButton panic_fab = (FloatingActionButton) findViewById(R.id.panic_fab);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
@@ -90,19 +98,11 @@ public class PatientHistoryActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(horizontal);
 
-        adapter1 = new MedicineAdapter(getApplicationContext(), contactNumberLists);
+        adapter1 = new PatientAdapter(getApplicationContext(), patientArrayList);
 
         recyclerView.setAdapter(adapter1);
 
 
-
-        z.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
 
 
         tick_buttom.setOnClickListener(new View.OnClickListener() {
