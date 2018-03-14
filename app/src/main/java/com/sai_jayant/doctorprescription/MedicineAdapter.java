@@ -9,13 +9,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,12 +29,12 @@ import java.util.ArrayList;
  * Created by Preet on 1/12/18.
  */
 
-public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriViewHolder>implements Filterable {
+public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriViewHolder> implements Filterable {
     private final Context ctx;
     private ArrayList<Medicine> listName;
     private DbHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
-
+    private RadioButton lastCheckedRB = null;
 
 
     public MedicineAdapter(Context applicationContext, ArrayList<Medicine> contactNameLists) {
@@ -58,15 +64,14 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
         holder.med_type_.setText(listName.get(position).getMedicine_type());
 
 
-        Log.d("true", "onBindViewHolder: "+listName.get(position).getSelected());
+        Log.d("true", "onBindViewHolder: " + listName.get(position).getSelected());
 
         if (listName.get(position).getSelected() == true) {
             holder.chk_selected.setVisibility(View.VISIBLE);
-        }else if (listName.get(position).getSelected() == false) {
+        } else if (listName.get(position).getSelected() == false) {
             holder.chk_selected.setVisibility(View.INVISIBLE);
 
         }
-
 
 
         holder.csb.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +111,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                                 // Remove the item on remove/button click
                                 dbHelper = new DbHelper(ctx);
                                 sqLiteDatabase = dbHelper.getWritableDatabase();
-                                dbHelper.DeleteRecords(sqLiteDatabase,listName.get(position).getId());
+                                dbHelper.DeleteRecords(sqLiteDatabase, listName.get(position).getId());
 
                                 listName.remove(position);
 
@@ -156,9 +161,66 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 alertbox.show();
 
 
+            }
+        });
+
+
+        holder.medicine_habit.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton checked_rb = (RadioButton) group.findViewById(checkedId);
+
+                if (lastCheckedRB != null) {
+                    lastCheckedRB.setChecked(false);
+                }
+                //store the clicked radiobutton
+                lastCheckedRB = checked_rb;
+                listName.get(position).setFood(checked_rb.getText().toString());
+            }
+        });
+
+
+        String daily_dosages[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "11","12","13","14","15"};
+        String frequency[] = {"Never", "Once Daily(OD)", "Twice Daily(TD)", "3 Times Daily", "4 Times Daily", "6 Times Daily", "7 Times Daily", "8 Times Daily", "9 Times Daily", "10 Times Daily"};
+        String cycle[] = {"One Day", "Two Day","3 day","4 day","One Week","Two Week","1 Month",""};
+
+
+
+
+
+
+
+
+// Selection of the spinner
+
+// Application of the Array to the Spinner
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.single_liner_show, colors);
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.single_liner); // The drop down view
+        day_after_food.setAdapter(spinnerArrayAdapter);
+
+
+        holder.daily_dosages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                listName.get(position).setFood(holder.daily_dosages.getSelectedItem().toString());
 
             }
         });
+        holder.frequency.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                listName.get(position).setFood(holder.daily_dosages.getSelectedItem().toString());
+
+            }
+        });
+        holder.cycle.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                listName.get(position).setFood(holder.daily_dosages.getSelectedItem().toString());
+
+            }
+        });
+
 
         holder.expand_layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,6 +258,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
     public Filter getFilter() {
         return null;
     }
+
     public void updateList(ArrayList<Medicine> temp) {
         listName = temp;
         notifyDataSetChanged();
@@ -204,9 +267,17 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
 
     static class UriViewHolder extends RecyclerView.ViewHolder {
 
-        private  LinearLayout expand_layout;
-        private  RelativeLayout expand_shrink;
-        private  ImageView expand;
+        private RadioButton none;
+        private RadioButton before;
+        private RadioButton after;
+        private RadioGroup medicine_habit;
+        private Spinner cycle;
+        private Spinner daily_dosages;
+        private Spinner frequency;
+
+        private LinearLayout expand_layout;
+        private RelativeLayout expand_shrink;
+        private ImageView expand;
         private ImageView chk_selected;
         private ImageView delete;
         private LinearLayout csb;
@@ -235,6 +306,16 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
             night_before_food = (TextView) contentView.findViewById(R.id.night_before_food);
             night_after_food = (TextView) contentView.findViewById(R.id.night_after_food);
             med_type_ = (TextView) contentView.findViewById(R.id.med_type_);
+
+
+            daily_dosages = (Spinner) contentView.findViewById(R.id.daily_dosages);
+            cycle = (Spinner) contentView.findViewById(R.id.cycle);
+            frequency = (Spinner) contentView.findViewById(R.id.frequency);
+            medicine_habit = (RadioGroup) contentView.findViewById(R.id.medicine_habit);
+
+            after = (RadioButton) contentView.findViewById(R.id.after);
+            before = (RadioButton) contentView.findViewById(R.id.before);
+            none = (RadioButton) contentView.findViewById(R.id.none);
 
 
         }

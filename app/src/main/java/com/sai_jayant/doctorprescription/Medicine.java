@@ -15,6 +15,45 @@ public class Medicine {
     String nighttime_before_food;
     String medicine_type;
 
+
+    String dosages;
+    String frequency;
+    String days;
+
+    public String getDosages() {
+        return dosages;
+    }
+
+    public void setDosages(String dosages) {
+        this.dosages = dosages;
+    }
+
+    public String getFrequency() {
+        return frequency;
+    }
+
+    public void setFrequency(String frequency) {
+        this.frequency = frequency;
+    }
+
+    public String getDays() {
+        return days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
+    }
+
+    public String getFood() {
+        return food;
+    }
+
+    public void setFood(String food) {
+        this.food = food;
+    }
+
+    String food;
+
     public int getId() {
         return id;
     }
