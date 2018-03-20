@@ -151,7 +151,7 @@ public class AddMedicineActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(horizontal);
 
-        adapter1 = new MedicineAdapter(getApplicationContext(), contactNumberLists);
+        adapter1 = new MedicineAdapter(AddMedicineActivity.this, contactNumberLists);
 
         recyclerView.setAdapter(adapter1);
         recyclerView.setNestedScrollingEnabled(false);
@@ -222,7 +222,7 @@ public class AddMedicineActivity extends AppCompatActivity {
 //                adapter1.notifyItemInserted(position);
 //                // Scroll to newly added item position
 //                recyclerView.scrollToPosition(position);
-                adapter1 = new MedicineAdapter(getApplicationContext(), contactNumberLists);
+                adapter1 = new MedicineAdapter(AddMedicineActivity.this, contactNumberLists);
 
                 recyclerView.setAdapter(adapter1);
                 recyclerView.setNestedScrollingEnabled(false);

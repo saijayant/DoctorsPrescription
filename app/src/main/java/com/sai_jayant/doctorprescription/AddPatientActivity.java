@@ -107,8 +107,6 @@ public class AddPatientActivity extends AppCompatActivity {
         intUi();
 
 
-
-
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -142,14 +140,6 @@ public class AddPatientActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
         tick_buttom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,13 +156,14 @@ public class AddPatientActivity extends AppCompatActivity {
                         String med = "";
                         if (contactNumberLists.size() > 0) {
                             med = "";
-                            int count=0;
+                            int count = 0;
                             for (int i = 0; i < contactNumberLists.size(); i++) {
                                 if (contactNumberLists.get(i).getSelected() == true) {
 
                                     int pos = count + 1;
 
-                                    med = med + "\n\nMedicine " + pos + " --- " + "" + contactNumberLists.get(i).getMedicine_name() + " (" + contactNumberLists.get(i).getMedicine_type() + ")" + "\n\n" + "Before food (Morning) - " + contactNumberLists.get(i).getDaytime_before_food() + "  " + "\nAfter lunch - " + contactNumberLists.get(i).getDaytime_after_food() + "\nBefore food (Evening) - " + contactNumberLists.get(i).getNighttime_after_food() + "\nAfter dinner - " + contactNumberLists.get(i).getNighttime_after_food() + " \n...................................................................";
+                                    med = med + "\n\n" + contactNumberLists.get(i).getMedicine_name() + " (" + contactNumberLists.get(i).getMedicine_type() + ")" + "\n\n" +contactNumberLists.get(i).getMedicine_type()+" unit"+
+                                            " \n...................................................................";
                                 }
                             }
                         }
@@ -237,7 +228,7 @@ public class AddPatientActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(horizontal);
 
-        adapter1 = new MedicineAdapter(getApplicationContext(), contactNumberLists);
+        adapter1 = new MedicineAdapter(AddPatientActivity.this, contactNumberLists);
 
         recyclerView.setAdapter(adapter1);
         recyclerView.setNestedScrollingEnabled(false);
@@ -267,7 +258,7 @@ public class AddPatientActivity extends AppCompatActivity {
     void filter(String text) {
         ArrayList<Medicine> temp = new ArrayList<>();
 
-        for (Medicine d :contactNumberLists ) {
+        for (Medicine d : contactNumberLists) {
             //or use .equal(text) with you want equal match
             //use .toLowerCase() for better matches
             Log.d("filter", "filter: text " + ((d.getMedicine_name()) + ""));
@@ -288,6 +279,58 @@ public class AddPatientActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Check which request we're responding to
+        if (requestCode == 5) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK && data != null) {
+                String medicine_name = data.getStringExtra("medicine_name");
+                String medicine_description = data.getStringExtra("medicine_description");
+                String medicine_type = data.getStringExtra("medicine_type");
+
+                String setFood = data.getStringExtra("setFood");
+                String setDosages = data.getStringExtra("setDosages");
+                String setFrequency = data.getStringExtra("setFrequency");
+                String setDays = data.getStringExtra("setDays");
+                String from_cos = data.getStringExtra("from_cos");
+
+                int position = data.getIntExtra("position", 0);
+
+
+                if (from_cos.equalsIgnoreCase("daily_dosages")) {
+                    setDosages = data.getStringExtra("item");
+                } else if (from_cos.equalsIgnoreCase("frequency")) {
+                    setFrequency = data.getStringExtra("item");
+
+                } else if (from_cos.equalsIgnoreCase("cycle")) {
+                    setDays = data.getStringExtra("item");
+
+
+                }
+
+
+                Medicine m = new Medicine();
+                m.setMedicine_name(medicine_name);
+                m.setMedicine_description(medicine_description);
+                m.setMedicine_type(medicine_type);
+                m.setSelected(false);
+                m.setFood(setFood);
+                m.setDosages(setDosages);
+                m.setFrequency(setFrequency);
+                m.setDays(setDays);
+
+                contactNumberLists.remove(position);
+                contactNumberLists.add(position, m);
+
+
+                adapter1.notifyDataSetChanged();
+
+            }
+
+        }
+    }
 }
 
 

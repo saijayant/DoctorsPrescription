@@ -133,7 +133,6 @@
                         android:layout_marginTop="6dp"
                         android:fontFamily="sans-serif-condensed"
                         android:padding="4dp"
-
                         android:text="Medicine type -"
                         android:textColor="#b33c0d"
                         android:textSize="13sp"
@@ -272,17 +271,17 @@
                         android:textColor="#444"
                         android:textSize="13sp" />
 
-                    <Spinner
+                    <TextView
                         android:id="@+id/daily_dosages"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:padding="4dp"
-                        android:text="2"
-                        android:textColor="#37b10e"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                        android:verticalScrollbarPosition="left"
+                        android:textColor="@color/clip2"
+                        android:hint="Click here to set daily dosage"
+                        android:scrollbarThumbVertical="@drawable/scrollbar_style"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true" />
 
                 </LinearLayout>
 
@@ -300,17 +299,17 @@
                         android:textColor="#444"
                         android:textSize="13sp" />
 
-                    <Spinner
+                    <TextView
                         android:id="@+id/frequency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
+                        android:hint="Click here to set Frequency"
                         android:fontFamily="sans-serif-condensed"
-                        android:padding="4dp"
-                        android:text="2"
-                        android:textColor="#37b10e"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+
+                        android:verticalScrollbarPosition="left"
+                        android:scrollbarThumbVertical="@drawable/scrollbar_style"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
 
                 </LinearLayout>
 
@@ -328,17 +327,18 @@
                         android:textColor="#444"
                         android:textSize="13sp" />
 
-                    <Spinner
+                    <TextView
                         android:id="@+id/cycle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
+                        android:verticalScrollbarPosition="left"
                         android:fontFamily="sans-serif-condensed"
-                        android:padding="4dp"
-                        android:text="2"
-                        android:textColor="#37b10e"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+
+                        android:hint="Click here to set Cycle"
+                        android:scrollbarThumbVertical="@drawable/scrollbar_style"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        />
 
                 </LinearLayout>
 
@@ -349,6 +349,7 @@
                     <RadioGroup
                         android:id="@+id/medicine_habit"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
                         android:layout_width="match_parent">
                         <RadioButton
                             android:id="@+id/before"
@@ -375,7 +376,7 @@
                             android:text="None (As required)"
                             android:textColor="#444"
                             android:textSize="13sp"
-                            android:fontFamily="sans-serif-condensed">
+                            android:fontFamily="sans-serif-condensed"/>
                     </RadioGroup>
 
                 </LinearLayout>

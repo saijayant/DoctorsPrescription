@@ -19,6 +19,7 @@ public class Medicine {
     String dosages;
     String frequency;
     String days;
+    String food;
 
     public String getDosages() {
         return dosages;
@@ -52,7 +53,6 @@ public class Medicine {
         this.food = food;
     }
 
-    String food;
 
     public int getId() {
         return id;
