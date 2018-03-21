@@ -144,37 +144,50 @@ public class AddPatientActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                int count = 0;
+
                 if (!patient_name.getText().toString().equalsIgnoreCase("")) {
 
 
                     if (!age.getText().toString().equalsIgnoreCase("")) {
 
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy hh.mm.aa");
-                        String formattedDate = dateFormat.format(new Date()).toString();
-                        System.out.println(formattedDate);
-                        date_now = formattedDate;
-                        String med = "";
-                        if (contactNumberLists.size() > 0) {
-                            med = "";
-                            int count = 0;
-                            for (int i = 0; i < contactNumberLists.size(); i++) {
-                                if (contactNumberLists.get(i).getSelected() == true) {
+                        if (!age.getText().toString().equalsIgnoreCase("")) {
 
-                                    int pos = count + 1;
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy hh.mm.aa");
+                            String formattedDate = dateFormat.format(new Date()).toString();
+                            System.out.println(formattedDate);
+                            date_now = formattedDate;
+                            String med = "";
 
-                                    med = med + "\n\n" + contactNumberLists.get(i).getMedicine_name() + " (" + contactNumberLists.get(i).getMedicine_type() + ")" + "\n\n" +contactNumberLists.get(i).getMedicine_type()+" unit"+
-                                            " \n...................................................................";
+
+                            if (contactNumberLists.size() > 0) {
+                                med = "";
+                                for (int i = 0; i < contactNumberLists.size(); i++) {
+                                    if (contactNumberLists.get(i).getSelected() == true) {
+
+                                        count = count + 1;
+
+                                        med = med + "\n" + contactNumberLists.get(i).getMedicine_name() + " (" + contactNumberLists.get(i).getMedicine_type() + ")" + "\n\n" + contactNumberLists.get(i).getDosages() + "  " + contactNumberLists.get(i).getMedicine_type() + " " + ", " + contactNumberLists.get(i).getFrequency() + "  " + " For " + contactNumberLists.get(i).getDays() + "  " + "\nTake this medicine  " + contactNumberLists.get(i).getFood() + "  " + " \n ........................................................................\n";
+
+                                        String medd = med;
+                                    } else {
+                                    }
                                 }
+                            }
+
+                            if (count > 0) {
+                                dbHelper.insertPatientDetails(sqLiteDatabase, patient_name.getText().toString(),
+                                        gender.getSelectedItem().toString(), age.getText().toString(), weight.getText().toString(),
+                                        number.getText().toString(), address.getText().toString(), date_now, med);
+
+                                Toast.makeText(AddPatientActivity.this, "Patient dat saved ", Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                Toast.makeText(AddPatientActivity.this, "No medicine is selected please select at least one Medicine .", Toast.LENGTH_SHORT).show();
+
                             }
                         }
 
-
-                        dbHelper.insertPatientDetails(sqLiteDatabase, patient_name.getText().toString(),
-                                gender.getSelectedItem().toString(), age.getText().toString(), weight.getText().toString(),
-                                number.getText().toString(), address.getText().toString(), date_now, med);
-
-                        Toast.makeText(AddPatientActivity.this, "Patient dat saved ", Toast.LENGTH_SHORT).show();
-                        finish();
 
                     } else {
                         Toast.makeText(AddPatientActivity.this, "Enter age", Toast.LENGTH_SHORT).show();
@@ -295,6 +308,7 @@ public class AddPatientActivity extends AppCompatActivity {
                 String setFrequency = data.getStringExtra("setFrequency");
                 String setDays = data.getStringExtra("setDays");
                 String from_cos = data.getStringExtra("from_cos");
+                String med_id = data.getStringExtra("med_id");
 
                 int position = data.getIntExtra("position", 0);
 
@@ -308,6 +322,8 @@ public class AddPatientActivity extends AppCompatActivity {
                     setDays = data.getStringExtra("item");
 
 
+                } else if (from_cos.equalsIgnoreCase("food_habbit")) {
+                    setFood = data.getStringExtra("item");
                 }
 
 
@@ -320,11 +336,18 @@ public class AddPatientActivity extends AppCompatActivity {
                 m.setDosages(setDosages);
                 m.setFrequency(setFrequency);
                 m.setDays(setDays);
+                m.setMed_id(med_id);
+
+
+                for (int i = 0; i < contactNumberLists.size(); i++) {
+                    if (med_id.equalsIgnoreCase(contactNumberLists.get(i).getMed_id())) {
+                        position = i;
+                    }
+                }
 
                 contactNumberLists.remove(position);
                 contactNumberLists.add(position, m);
-
-
+                adapter1.notifyItemInserted(position);
                 adapter1.notifyDataSetChanged();
 
             }

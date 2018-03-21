@@ -18,11 +18,13 @@ public class CostomChildClass extends Activity {
     ArrayAdapter adapter;
     // Array of strings...
     String daily_dosages[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "11", "12", "13", "14", "15","16","17","18","19"};
-    String frequency[] = {"Never", "Once Daily(OD)", "Twice Daily(TD)", "3 Times Daily", "4 Times Daily", "6 Times Daily", "7 Times Daily", "8 Times Daily", "9 Times Daily", "10 Times Daily", "Every 2 hour", "Every 3 hour"};
-    String cycle[] = {"One Day", "Two Day", "3 day", "4 day", "One Week", "Two Week", "1 Month", "2 Months", "3 Months", "6 Month", "9 Month", "1 year", "2 Year", "Always"};
+    String frequency[] = {"never", "once daily(OD)", "twice daily(TD)", "3 times daily", "4 times daily", "6 times daily", "7 times daily", "8 times daily", "9 times daily", "10 times daily", "every 2 hour", "every 3 hour"};
+    String cycle[] = {"one day", "two days", "3 days", "4 days", "one week", "two weeks", "1 month", "2 months", "3 months", "6 month", "9 month", "1 year", "2 year", "always"};
+    String food_habbit[] = {"before Food", "after Food", "only in morning", "only in night", "any time", "nothing specific", "immediately"};
     private String medicine_name, medicine_description, medicine_type, setFood, setDosages, setFrequency, setDays;
     int position;
     String from_cos;
+    String med_id;
 
 
     @Override
@@ -41,6 +43,7 @@ public class CostomChildClass extends Activity {
         setFrequency = data.getStringExtra("setFrequency");
         setDays = data.getStringExtra("setDays");
         position = data.getIntExtra("position", 0);
+        med_id = data.getStringExtra("med_id");
 
 
         if (from.equalsIgnoreCase("daily_dosages")) {
@@ -52,6 +55,9 @@ public class CostomChildClass extends Activity {
         } else if (from.equalsIgnoreCase("cycle")) {
             adapter = new ArrayAdapter<String>(this,
                     R.layout.single_liner_show, cycle);
+        }else if (from.equalsIgnoreCase("food_habbit")) {
+            adapter = new ArrayAdapter<String>(this,
+                    R.layout.single_liner_show, food_habbit);
         }
 
         ListView listView = (ListView) findViewById(R.id.mobile_list);
@@ -74,6 +80,10 @@ public class CostomChildClass extends Activity {
                     temp = cycle;
                     from_cos = "cycle";
 
+                } else if (from.equalsIgnoreCase("food_habbit")) {
+                    temp = food_habbit;
+                    from_cos = "food_habbit";
+
                 }
 
                 assert temp != null;
@@ -88,6 +98,7 @@ public class CostomChildClass extends Activity {
                 intent.putExtra("from", "daily_dosages");
                 intent.putExtra("position", position);
                 intent.putExtra("from_cos", from_cos);
+                intent.putExtra("med_id", med_id);
                 setResult(RESULT_OK, intent);
                 finish();
             }

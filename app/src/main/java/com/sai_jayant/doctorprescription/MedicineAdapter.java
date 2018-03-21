@@ -43,7 +43,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
     public MedicineAdapter(Activity applicationContext, ArrayList<Medicine> contactNameLists) {
         listName = contactNameLists;
         ctx = applicationContext;
-        ac=applicationContext;
+        ac = applicationContext;
     }
 
 
@@ -169,50 +169,27 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
         });
 
 
-        holder.medicine_habit.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton checked_rb = (RadioButton) group.findViewById(checkedId);
-
-                if (lastCheckedRB != null) {
-                    lastCheckedRB.setChecked(false);
-                }
-                //store the clicked radiobutton
-                lastCheckedRB = checked_rb;
-                listName.get(position).setFood(checked_rb.getText().toString());
-            }
-        });
-
-
-        String daily_dosages[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "11","12","13","14","15"};
-        String frequency[] = {"Never", "Once Daily(OD)", "Twice Daily(TD)", "3 Times Daily", "4 Times Daily", "6 Times Daily", "7 Times Daily", "8 Times Daily", "9 Times Daily", "10 Times Daily","Every 2 hour","Every 3 hour"};
-        String cycle[] = {"One Day", "Two Day","3 day","4 day","One Week","Two Week","1 Month",""};
-        String colors[] = {"One Day", "Two Day","3 day","4 day","One Week","Two Week","1 Month","2 Months","3 Months","6 Month","9 Month","1 year","2 Year","Always"};
-
         holder.daily_dosages.setText(listName.get(position).getDosages());
         holder.frequency.setText(listName.get(position).getFrequency());
         holder.cycle.setText(listName.get(position).getDays());
-
+        holder.food_habbit.setText(listName.get(position).getFood());
 
 
         holder.daily_dosages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
-
-
                 Intent i = new Intent(ac, CostomChildClass.class);
-                i.putExtra("medicine_name",listName.get(position).getMedicine_name());
-                i.putExtra("medicine_description",listName.get(position).getMedicine_description());
-                i.putExtra("medicine_type",listName.get(position).getMedicine_type());
-                i.putExtra("setFood",listName.get(position).getFood());
-                i.putExtra("setDosages",holder.daily_dosages.getText().toString());
-                i.putExtra("setFrequency",holder.frequency.getText().toString());
-                i.putExtra("cycle",holder.cycle.getText().toString());
-                i.putExtra("from","daily_dosages");
-                i.putExtra("position",position);
+                i.putExtra("medicine_name", listName.get(position).getMedicine_name());
+                i.putExtra("medicine_description", listName.get(position).getMedicine_description());
+                i.putExtra("medicine_type", listName.get(position).getMedicine_type());
+                i.putExtra("setFood", listName.get(position).getFood());
+                i.putExtra("setDosages", holder.daily_dosages.getText().toString());
+                i.putExtra("setFrequency", holder.frequency.getText().toString());
+                i.putExtra("cycle", holder.cycle.getText().toString());
+                i.putExtra("from", "daily_dosages");
+                i.putExtra("position", position);
+                i.putExtra("med_id", listName.get(position).getMed_id());
+
                 ac.startActivityForResult(i, 5);
             }
         });
@@ -222,18 +199,18 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
             public void onClick(View view) {
 
 
-
-
                 Intent i = new Intent(ac, CostomChildClass.class);
-                i.putExtra("medicine_name",listName.get(position).getMedicine_name());
-                i.putExtra("medicine_description",listName.get(position).getMedicine_description());
-                i.putExtra("medicine_type",listName.get(position).getMedicine_type());
-                i.putExtra("setFood",listName.get(position).getFood());
-                i.putExtra("setDosages",holder.daily_dosages.getText().toString());
-                i.putExtra("setFrequency",holder.frequency.getText().toString());
-                i.putExtra("cycle",holder.cycle.getText().toString());
-                i.putExtra("from","frequency");
-                i.putExtra("position",position);
+                i.putExtra("medicine_name", listName.get(position).getMedicine_name());
+                i.putExtra("medicine_description", listName.get(position).getMedicine_description());
+                i.putExtra("medicine_type", listName.get(position).getMedicine_type());
+                i.putExtra("setFood", listName.get(position).getFood());
+                i.putExtra("setDosages", holder.daily_dosages.getText().toString());
+                i.putExtra("setFrequency", holder.frequency.getText().toString());
+                i.putExtra("cycle", holder.cycle.getText().toString());
+                i.putExtra("from", "frequency");
+                i.putExtra("position", position);
+                i.putExtra("med_id", listName.get(position).getMed_id());
+
 
                 ac.startActivityForResult(i, 5);
             }
@@ -244,53 +221,41 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
             public void onClick(View view) {
 
 
-
-
-
                 Intent i = new Intent(ac, CostomChildClass.class);
-                i.putExtra("medicine_name",listName.get(position).getMedicine_name());
-                i.putExtra("medicine_description",listName.get(position).getMedicine_description());
-                i.putExtra("medicine_type",listName.get(position).getMedicine_type());
-                i.putExtra("setFood",listName.get(position).getFood());
-                i.putExtra("setDosages",holder.daily_dosages.getText().toString());
-                i.putExtra("setFrequency",holder.frequency.getText().toString());
-                i.putExtra("cycle",holder.cycle.getText().toString());
-                i.putExtra("from","cycle");
-                i.putExtra("position",position);
+                i.putExtra("medicine_name", listName.get(position).getMedicine_name());
+                i.putExtra("medicine_description", listName.get(position).getMedicine_description());
+                i.putExtra("medicine_type", listName.get(position).getMedicine_type());
+                i.putExtra("setFood", listName.get(position).getFood());
+                i.putExtra("setDosages", holder.daily_dosages.getText().toString());
+                i.putExtra("setFrequency", holder.frequency.getText().toString());
+                i.putExtra("cycle", holder.cycle.getText().toString());
+                i.putExtra("from", "cycle");
+                i.putExtra("position", position);
+                i.putExtra("med_id", listName.get(position).getMed_id());
 
                 ac.startActivityForResult(i, 5);
             }
         });
+        holder.food_habbit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
+                Intent i = new Intent(ac, CostomChildClass.class);
+                i.putExtra("medicine_name", listName.get(position).getMedicine_name());
+                i.putExtra("medicine_description", listName.get(position).getMedicine_description());
+                i.putExtra("medicine_type", listName.get(position).getMedicine_type());
+                i.putExtra("setFood", listName.get(position).getFood());
+                i.putExtra("setDosages", holder.daily_dosages.getText().toString());
+                i.putExtra("setFrequency", holder.frequency.getText().toString());
+                i.putExtra("cycle", holder.cycle.getText().toString());
+                i.putExtra("from", "food_habbit");
+                i.putExtra("position", position);
+                i.putExtra("med_id", listName.get(position).getMed_id());
 
-
-
-
-//        day_after_food.setAdapter(spinnerArrayAdapter);
-
-
-//        holder.daily_dosages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                listName.get(position).setFood(holder.daily_dosages.getSelectedItem().toString());
-
-//            }
-//        });
-//        holder.frequency.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                listName.get(position).setFood(holder.daily_dosages.getSelectedItem().toString());
-
-//            }
-//        });
-//        holder.cycle.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                listName.get(position).setFood(holder.daily_dosages.getSelectedItem().toString());
-
-//            }
-//        });
+                ac.startActivityForResult(i, 5);
+            }
+        });
 
 
         holder.expand_layout.setOnClickListener(new View.OnClickListener() {
@@ -338,6 +303,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
 
     static class UriViewHolder extends RecyclerView.ViewHolder {
 
+        private TextView food_habbit;
         private RadioButton none;
         private RadioButton before;
         private RadioButton after;
@@ -372,21 +338,13 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
             expand_shrink = (RelativeLayout) contentView.findViewById(R.id.expand_shrink);
             medicine_name = (TextView) contentView.findViewById(R.id.medicine_name);
             description = (TextView) contentView.findViewById(R.id.description);
-//            day_after_food = (TextView) contentView.findViewById(R.id.day_after_food);
-//            day_before_food = (TextView) contentView.findViewById(R.id.day_before_food);
-//            night_before_food = (TextView) contentView.findViewById(R.id.night_before_food);
-//            night_after_food = (TextView) contentView.findViewById(R.id.night_after_food);
             med_type_ = (TextView) contentView.findViewById(R.id.med_type_);
 
 
             daily_dosages = (TextView) contentView.findViewById(R.id.daily_dosages);
             cycle = (TextView) contentView.findViewById(R.id.cycle);
             frequency = (TextView) contentView.findViewById(R.id.frequency);
-            medicine_habit = (RadioGroup) contentView.findViewById(R.id.medicine_habit);
-
-            after = (RadioButton) contentView.findViewById(R.id.after);
-            before = (RadioButton) contentView.findViewById(R.id.before);
-            none = (RadioButton) contentView.findViewById(R.id.none);
+            food_habbit = (TextView) contentView.findViewById(R.id.food_habbit);
 
 
         }

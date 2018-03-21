@@ -29,8 +29,7 @@
             android:padding="4dp"
             android:text="Medicine name"
             android:textColor="#1d1d1d"
-            android:textSize="15sp"
-            />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:id="@+id/check_layout"
@@ -50,14 +49,14 @@
                 android:padding="4dp"
                 android:text="Show this medicine always "
                 android:textColor="#fd237e29"
-                android:textSize="13sp" />
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:id="@+id/csb"
                 android:layout_width="23dp"
-                android:layout_gravity="center"
                 android:layout_height="23dp"
                 android:layout_alignParentRight="true"
+                android:layout_gravity="center"
                 android:layout_marginBottom="4dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
@@ -67,17 +66,15 @@
                     android:id="@+id/chk_selected"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="2dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
-                    android:src="@drawable/ic_check_gray_24dp"
                     android:buttonTint="#fff"
+                    android:padding="2dp"
                     android:shadowColor="@color/white"
+                    android:src="@drawable/ic_check_gray_24dp"
                     android:textColor="@color/white" />
 
             </LinearLayout>
-
-
 
 
         </LinearLayout>
@@ -86,7 +83,8 @@
             android:id="@+id/expand_shrink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/check_layout">
+            android:layout_below="@+id/check_layout"
+           >
 
             <TextView
                 android:id="@+id/description"
@@ -123,7 +121,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
@@ -135,18 +133,18 @@
                         android:padding="4dp"
                         android:text="Medicine type -"
                         android:textColor="#b33c0d"
-                        android:textSize="13sp"
-                         />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/med_type_"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="6dp"
+                        android:background="@drawable/edit_text"
                         android:fontFamily="sans-serif-condensed"
-                        android:padding="4dp"
-                        android:text="2"
+                        android:padding="5dp"
+                        android:text="Pills"
                         android:textColor="#2452d1"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -170,17 +168,16 @@
                 android:text="Dosage "
 
                 android:textColor="#b33c0d"
-                android:textSize="14sp"
-                />
+                android:textSize="15sp" />
 
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/afterfood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/dosage"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:weightSum="3">
 
 
@@ -269,19 +266,24 @@
                         android:padding="4dp"
                         android:text="Dosages -"
                         android:textColor="#444"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/daily_dosages"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:verticalScrollbarPosition="left"
-                        android:textColor="@color/clip2"
-                        android:hint="Click here to set daily dosage"
-                        android:scrollbarThumbVertical="@drawable/scrollbar_style"
                         android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true" />
+                        android:layout_centerVertical="true"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/edit_text"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint=" Click here to set daily dosage"
+
+                        android:padding="5dp"
+                        android:scrollbarThumbVertical="@drawable/scrollbar_style"
+                        android:textColor="@color/clip2"
+                        android:textSize="14sp"
+                        android:verticalScrollbarPosition="left" />
 
                 </LinearLayout>
 
@@ -297,19 +299,24 @@
                         android:padding="4dp"
                         android:text="Frequency  -"
                         android:textColor="#444"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/frequency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Click here to set Frequency"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/edit_text"
                         android:fontFamily="sans-serif-condensed"
 
-                        android:verticalScrollbarPosition="left"
+                        android:hint="Click here to set Frequency"
+                        android:padding="5dp"
                         android:scrollbarThumbVertical="@drawable/scrollbar_style"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"/>
+                        android:textColor="@color/clip2"
+                        android:textSize="14sp"
+                        android:verticalScrollbarPosition="left" />
 
                 </LinearLayout>
 
@@ -325,20 +332,24 @@
                         android:padding="4dp"
                         android:text="Cycle (Days) -"
                         android:textColor="#444"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/cycle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:verticalScrollbarPosition="left"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/edit_text"
                         android:fontFamily="sans-serif-condensed"
 
                         android:hint="Click here to set Cycle"
+                        android:padding="5dp"
                         android:scrollbarThumbVertical="@drawable/scrollbar_style"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        />
+                        android:textColor="@color/clip2"
+                        android:textSize="14sp"
+                        android:verticalScrollbarPosition="left" />
 
                 </LinearLayout>
 
@@ -346,38 +357,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <RadioGroup
-                        android:id="@+id/medicine_habit"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="match_parent">
-                        <RadioButton
-                            android:id="@+id/before"
-                            android:layout_height="30dp"
-                            android:layout_width="wrap_content"
-                            android:text="Before food"
-                            android:textColor="#444"
-                            android:textSize="13sp"
-                            android:fontFamily="sans-serif-condensed"/>
-                        <RadioButton
-                            android:id="@+id/after"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:padding="4dp"
+                        android:text="Intake type(before after food) -"
+                        android:textColor="#444"
+                        android:textSize="14sp" />
 
-                            android:layout_height="30dp"
-                            android:layout_width="wrap_content"
-                            android:text="After food"
-                            android:textColor="#444"
-                            android:textSize="13sp"
-                            android:fontFamily="sans-serif-condensed"/>
-                        <RadioButton
-                            android:id="@+id/none"
-
-                            android:layout_height="30dp"
-                            android:layout_width="wrap_content"
-                            android:text="None (As required)"
-                            android:textColor="#444"
-                            android:textSize="13sp"
-                            android:fontFamily="sans-serif-condensed"/>
-                    </RadioGroup>
+                    <TextView
+                        android:id="@+id/food_habbit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/edit_text"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="Click here to set intake type"
+                        android:padding="5dp"
+                        android:scrollbarThumbVertical="@drawable/scrollbar_style"
+                        android:textColor="@color/clip2"
+                        android:textSize="14sp"
+                        android:verticalScrollbarPosition="left" />
 
                 </LinearLayout>
 
@@ -396,23 +400,22 @@
             android:buttonTint="#fff"
             android:shadowColor="@color/white"
             android:textColor="@color/white" />
+
         <LinearLayout
             android:id="@+id/expand_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_below="@id/delete"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="20dp"
-
-android:layout_below="@id/delete"
             android:layout_marginStart="70dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/edit_text">
+            android:layout_marginTop="14dp">
 
             <ImageView
                 android:id="@+id/expand"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="right"
                 android:layout_marginLeft="0dp"
                 android:background="@drawable/ic_keyboard_arrow_down_black_24dp"

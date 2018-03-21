@@ -22,6 +22,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String NIGHTTIMEBEFOREFOOD = "night_time_before_food";
     private static final String ISSELECTED = "isselected";
     private static final String MEDICINETYPE = "medicine_type";
+    private static final String MED_ID = "med_id";
     private static final String ID = "id";
     public static final String PATIENT_TABLE = "patientinfo";
     public static final String PATIENTNAME = "patient_name";
@@ -49,6 +50,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 + NIGHTTIMEBEFOREFOOD+" TEXT,"
                 + ISSELECTED+" TEXT,"
                 + MEDICINETYPE+" TEXT,"
+                + MED_ID+" TEXT,"
         +ID+" INTEGER PRIMARY KEY AUTOINCREMENT);");
         db.execSQL("CREATE TABLE "+PATIENT_TABLE+"("+ PATIENTNAME+" TEXT,"+ GENDER+" TEXT,"
                 + AGE+" TEXT,"
@@ -62,7 +64,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     public void insertData(SQLiteDatabase db, String medicname, String medicdesc, String dayafterfood, String daybeforefood,
-                           String nightafterfood, String nightbeforefood, String isselected, String medictype){
+                           String nightafterfood, String nightbeforefood, String isselected, String medictype, String output){
         ContentValues values = new ContentValues();
         values.put(MEDICINENAME, medicname);
         values.put(MEDICINEDESC, medicdesc);
@@ -72,6 +74,7 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(NIGHTTIMEBEFOREFOOD, nightbeforefood);
         values.put(ISSELECTED, isselected);
         values.put(MEDICINETYPE, medictype);
+        values.put(MED_ID, output);
         db.insert(TABLENAME, null, values);
 
     }
@@ -116,6 +119,7 @@ public class DbHelper extends SQLiteOpenHelper {
                             c.getString(c.getColumnIndex(NIGHTTIMEBEFOREFOOD)),
                             c.getString(c.getColumnIndex(ISSELECTED)),
                             c.getString(c.getColumnIndex(MEDICINETYPE)),
+                            c.getString(c.getColumnIndex(MED_ID)),
                             c.getInt(c.getColumnIndex(ID))
 
 

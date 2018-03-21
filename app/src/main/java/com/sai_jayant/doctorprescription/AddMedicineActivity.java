@@ -35,6 +35,7 @@ import android.widget.Toast;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Preet on 1/12/18.
@@ -190,10 +191,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                 String night_before_food = data.getStringExtra("night_before_food");
                 String night_after_food = data.getStringExtra("night_after_food");
                 String medicine_type = data.getStringExtra("medicine_type");
-                dbHelper = new DbHelper(this);
-                sqLiteDatabase = dbHelper.getWritableDatabase();
-                dbHelper.insertData(sqLiteDatabase, medicine_name, medicine_description, day_after_food, day_before_food,
-                        night_after_food, night_before_food, "false", medicine_type);
+
 
 
                 Medicine m = new Medicine();
@@ -205,7 +203,20 @@ public class AddMedicineActivity extends AppCompatActivity {
                 m.setNighttime_before_food(night_before_food);
                 m.setMedicine_type(medicine_type);
                 m.setSelected(false);
+                char[] chars = "abcdefghijklmnopqrstuvwxyz1234567890QWERTYUIOPASDFGHJKLZXCVBNM".toCharArray();
+                StringBuilder sb = new StringBuilder(32);
+                Random random = new Random();
+                for (int i = 0; i < 32; i++) {
+                    char c = chars[random.nextInt(chars.length)];
+                    sb.append(c);
+                }
+                String output = sb.toString();
+                m.setMed_id(output);
 
+                dbHelper = new DbHelper(this);
+                sqLiteDatabase = dbHelper.getWritableDatabase();
+                dbHelper.insertData(sqLiteDatabase, medicine_name, medicine_description, day_after_food, day_before_food,
+                        night_after_food, night_before_food, "false", medicine_type,output);
 
                 int position = adapter1.getItemCount();
                 // Add an item to animals list

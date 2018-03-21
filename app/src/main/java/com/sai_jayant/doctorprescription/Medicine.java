@@ -21,6 +21,16 @@ public class Medicine {
     String days;
     String food;
 
+    public String getMed_id() {
+        return med_id;
+    }
+
+    public void setMed_id(String med_id) {
+        this.med_id = med_id;
+    }
+
+    String med_id;
+
     public String getDosages() {
         return dosages;
     }
@@ -66,7 +76,7 @@ public class Medicine {
 
 
 
-    public Medicine(String string, String string1, String string2, String string3, String string4, String string5, String string6, String string7,int ids) {
+    public Medicine(String string, String string1, String string2, String string3, String string4, String string5, String string6, String string7,String med_i,int ids) {
         medicine_name = string;
         medicine_description = string1;
         daytime_after_food = string2;
@@ -80,6 +90,7 @@ public class Medicine {
         }
         medicine_type=string7;
         id=ids;
+        med_id=med_i;
     }
 
     public Medicine() {
