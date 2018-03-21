@@ -319,7 +319,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/address_layout"
                 android:layout_marginBottom="0dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:weightSum="3">
 
 
@@ -354,7 +354,23 @@
                         />
 
                 </LinearLayout>
+                <Button
+                    android:id="@+id/new_prescription_button"
 
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/button_flight_img"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:elevation="4dp"
+                    android:text="  Print now  "
+                    android:background="@drawable/clip_button"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:textColor="#fff"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 

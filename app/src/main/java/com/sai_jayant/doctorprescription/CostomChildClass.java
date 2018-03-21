@@ -94,7 +94,7 @@ public class CostomChildClass extends Activity {
                 intent.putExtra("setFood", setFood);
                 intent.putExtra("setDosages", setDosages);
                 intent.putExtra("setFrequency", setFrequency);
-                intent.putExtra("cycle", setDays);
+                intent.putExtra("setDays", setDays);
                 intent.putExtra("from", "daily_dosages");
                 intent.putExtra("position", position);
                 intent.putExtra("from_cos", from_cos);

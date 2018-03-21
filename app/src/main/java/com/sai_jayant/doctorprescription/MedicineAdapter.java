@@ -185,7 +185,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 i.putExtra("setFood", listName.get(position).getFood());
                 i.putExtra("setDosages", holder.daily_dosages.getText().toString());
                 i.putExtra("setFrequency", holder.frequency.getText().toString());
-                i.putExtra("cycle", holder.cycle.getText().toString());
+                i.putExtra("setDays", holder.cycle.getText().toString());
                 i.putExtra("from", "daily_dosages");
                 i.putExtra("position", position);
                 i.putExtra("med_id", listName.get(position).getMed_id());
@@ -206,7 +206,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 i.putExtra("setFood", listName.get(position).getFood());
                 i.putExtra("setDosages", holder.daily_dosages.getText().toString());
                 i.putExtra("setFrequency", holder.frequency.getText().toString());
-                i.putExtra("cycle", holder.cycle.getText().toString());
+                i.putExtra("setDays", holder.cycle.getText().toString());
                 i.putExtra("from", "frequency");
                 i.putExtra("position", position);
                 i.putExtra("med_id", listName.get(position).getMed_id());
@@ -228,7 +228,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 i.putExtra("setFood", listName.get(position).getFood());
                 i.putExtra("setDosages", holder.daily_dosages.getText().toString());
                 i.putExtra("setFrequency", holder.frequency.getText().toString());
-                i.putExtra("cycle", holder.cycle.getText().toString());
+                i.putExtra("setDays", holder.cycle.getText().toString());
                 i.putExtra("from", "cycle");
                 i.putExtra("position", position);
                 i.putExtra("med_id", listName.get(position).getMed_id());
@@ -248,7 +248,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 i.putExtra("setFood", listName.get(position).getFood());
                 i.putExtra("setDosages", holder.daily_dosages.getText().toString());
                 i.putExtra("setFrequency", holder.frequency.getText().toString());
-                i.putExtra("cycle", holder.cycle.getText().toString());
+                i.putExtra("setDays", holder.cycle.getText().toString());
                 i.putExtra("from", "food_habbit");
                 i.putExtra("position", position);
                 i.putExtra("med_id", listName.get(position).getMed_id());

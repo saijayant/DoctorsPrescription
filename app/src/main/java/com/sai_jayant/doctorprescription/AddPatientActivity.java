@@ -88,6 +88,7 @@ public class AddPatientActivity extends AppCompatActivity {
     private SQLiteDatabase sqLiteDatabase;
     private String date_now;
     private EditText search;
+    private String search_text;
 
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -260,6 +261,7 @@ public class AddPatientActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 filter(s.toString());
+                search_text=s.toString();
 
             }
         });
@@ -349,6 +351,7 @@ public class AddPatientActivity extends AppCompatActivity {
                 contactNumberLists.add(position, m);
                 adapter1.notifyItemInserted(position);
                 adapter1.notifyDataSetChanged();
+                search.setText(search_text);
 
             }
 
