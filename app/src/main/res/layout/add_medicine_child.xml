@@ -74,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="30dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
                         android:padding="2dp"
                         android:text="Add Medicine"
                         android:textColor="#fff"
@@ -154,7 +154,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:background="@drawable/edit_text"
-                            android:fontFamily="sans-serif-condensed-light"
+                            android:fontFamily="sans-serif-condensed"
                             android:hint="Enter Medicine name "
                             android:inputType="textPersonName"
                             android:textColor="@color/clip_color_one"
@@ -187,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:fontFamily="sans-serif-condensed"
 
                     android:text="Enter Description for the medicine"
                     android:textColor="@color/clip_color_one"
@@ -214,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="1dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
 android:inputType="textPersonName"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="8dp"
@@ -225,14 +225,7 @@ android:inputType="textPersonName"
                 </LinearLayout>
 
 
-                <View
-                    android:id="@+id/last_divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:background="@color/gainsboro" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -248,7 +241,7 @@ android:inputType="textPersonName"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Enter Medicine Type eg : Tonic,tablets,Pills,Injection"
 
                     android:textColor="@color/clip_color_one"
@@ -267,7 +260,7 @@ android:inputType="textPersonName"
                         android:layout_gravity="center"
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="8dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
                         android:layout_marginTop="4dp"
                         android:text="Medicine type" />
 
@@ -285,14 +278,6 @@ android:inputType="textPersonName"
 
 
 
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:background="@color/gainsboro" />
             </LinearLayout>
 
 
@@ -301,6 +286,7 @@ android:inputType="textPersonName"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="30dp"
+                android:visibility="gone"
                 android:background="@color/white"
                 android:orientation="vertical">
 
@@ -309,7 +295,7 @@ android:inputType="textPersonName"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Enter Description for the medicineSet dosage"
 
                     android:textColor="@color/clip_color_one"
@@ -328,7 +314,7 @@ android:inputType="textPersonName"
                         android:layout_gravity="center"
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="8dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
                         android:layout_marginTop="4dp"
                         android:text="Day time (before food)" />
 
@@ -356,7 +342,7 @@ android:inputType="textPersonName"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="4dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
 
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="4dp"
@@ -368,7 +354,7 @@ android:inputType="textPersonName"
                         android:layout_height="30dp"
                         android:layout_marginBottom="1dp"
                         android:layout_marginLeft="8dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
 
                         android:layout_marginRight="8dp"
                         android:background="@drawable/edit_text"
@@ -388,7 +374,7 @@ android:inputType="textPersonName"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="4dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
 
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="4dp"
@@ -419,7 +405,7 @@ android:inputType="textPersonName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
 
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="8dp"
@@ -433,7 +419,7 @@ android:inputType="textPersonName"
                         android:layout_marginBottom="1dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
 
                         android:background="@drawable/edit_text"
                         android:textColor="@color/text_gray_one"
@@ -476,7 +462,7 @@ android:inputType="textPersonName"
                         android:layout_margin="8dp"
                         android:layout_weight="1"
                         android:background="@color/primary_dark"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
 
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"

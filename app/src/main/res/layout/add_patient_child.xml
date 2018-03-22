@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="30dp"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
                         android:padding="2dp"
                         android:text="Add Patient"
                         android:textColor="#fff"
@@ -152,7 +152,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
                             android:background="@drawable/edit_text"
-                            android:fontFamily="sans-serif-condensed-light"
+                            android:fontFamily="sans-serif-condensed"
                             android:hint="Enter Patient name "
                             android:inputType="textPersonName"
                             android:textColor="@color/clip_color_one"
@@ -160,13 +160,6 @@
                     </LinearLayout>
 
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginRight="50dp"
-                        android:background="@color/transparent" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -184,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Enter Description for the medicineSet dosage"
 
                     android:textColor="@color/clip_color_one"
@@ -203,8 +196,8 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="8dp"
-                        android:fontFamily="sans-serif-condensed-light"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:text="Select gender" />
 
                     <Spinner
@@ -233,19 +226,19 @@
                         android:layout_gravity="center"
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="8dp"
-                        android:textSize="14sp"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:text="Set Weight (KGs)- " />
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Set Weight (KGs)- "
+                        android:textSize="14sp" />
 
                     <EditText
                         android:id="@+id/weight"
                         android:layout_width="250dp"
                         android:layout_height="25dp"
-                        android:layout_marginBottom="1dp"
                         android:layout_gravity="center"
+                        android:layout_marginBottom="1dp"
                         android:background="@drawable/edit_text"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint=" Eg : 65"
                         android:inputType="numberDecimal"
                         android:textColor="@color/clip_color_one"
@@ -264,12 +257,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:inputType="number"
-
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="8dp"
+
                         android:layout_marginTop="4dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="number"
                         android:text="Set age - " />
 
 
@@ -277,24 +270,17 @@
                         android:id="@+id/age"
                         android:layout_width="250dp"
                         android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="1dp"
                         android:background="@drawable/edit_text"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint=" Eg : 40 "
                         android:inputType="numberDecimal"
-                        android:layout_gravity="center"
                         android:textColor="@color/clip_color_one"
                         android:textSize="14sp" />
                 </LinearLayout>
 
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:background="@color/gainsboro" />
             </LinearLayout>
 
             <LinearLayout
@@ -310,7 +296,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:fontFamily="sans-serif-condensed"
 
                     android:text="Enter Mobile number"
                     android:textColor="@color/clip_color_one"
@@ -337,26 +323,18 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="1dp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:inputType="number"
-android:maxLength="10"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="8dp"
                         android:background="@drawable/edit_text"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint=" eg :93930400404"
+                        android:inputType="number"
+                        android:maxLength="10"
                         android:textColor="@color/clip_color_one"
                         android:textSize="16sp" />
                 </LinearLayout>
 
 
-                <View
-                    android:id="@+id/last_divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:background="@color/gainsboro" />
             </LinearLayout>
 
             <LinearLayout
@@ -372,7 +350,7 @@ android:maxLength="10"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:fontFamily="sans-serif-condensed"
 
                     android:text="Enter Adress "
                     android:textColor="@color/clip_color_one"
@@ -399,26 +377,18 @@ android:maxLength="10"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="1dp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:inputType="textPersonName"
-
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="8dp"
+
                         android:background="@drawable/edit_text"
+                        android:fontFamily="sans-serif-condensed"
                         android:hint=" eg : Andheri East,Mumbai,4001673"
+                        android:inputType="textPersonName"
                         android:textColor="@color/clip_color_one"
                         android:textSize="16sp" />
                 </LinearLayout>
 
 
-                <View
-                    android:id="@+id/last_divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:background="@color/gainsboro" />
             </LinearLayout>
 
             <LinearLayout
@@ -434,7 +404,7 @@ android:maxLength="10"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:fontFamily="sans-serif-condensed"
 
                     android:text="Medicines "
                     android:textColor="@color/clip_color_one"
@@ -444,21 +414,21 @@ android:maxLength="10"
                 <EditText
                     android:id="@+id/search"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:layout_gravity="center"
-                    android:elevation="4dp"
-                    android:padding="8dp"
 
                     android:layout_marginTop="10dp"
-                    android:textColorHint="@color/text_gray_one"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:background="@drawable/edit_text"
-                    android:fontFamily="sans-serif-condensed-light"
+                    android:elevation="4dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:hint="Search ... "
                     android:inputType="textPersonName"
+                    android:padding="8dp"
                     android:textColor="@color/clip_color_one"
+                    android:textColorHint="@color/text_gray_one"
                     android:textSize="16sp" />
 
                 <android.support.v7.widget.RecyclerView
@@ -467,7 +437,6 @@ android:maxLength="10"
                     android:layout_height="wrap_content"
                     android:scrollbars="none" />
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -495,7 +464,7 @@ android:maxLength="10"
                         android:layout_margin="8dp"
                         android:layout_weight="1"
                         android:background="@color/primary_dark"
-                        android:fontFamily="sans-serif-condensed-light"
+                        android:fontFamily="sans-serif-condensed"
 
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"

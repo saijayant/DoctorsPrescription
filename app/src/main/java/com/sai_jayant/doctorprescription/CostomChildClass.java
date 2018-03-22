@@ -25,6 +25,7 @@ public class CostomChildClass extends Activity {
     int position;
     String from_cos;
     String med_id;
+    Boolean isSelected;
 
 
     @Override
@@ -44,6 +45,8 @@ public class CostomChildClass extends Activity {
         setDays = data.getStringExtra("setDays");
         position = data.getIntExtra("position", 0);
         med_id = data.getStringExtra("med_id");
+        isSelected=   data.getBooleanExtra("checked",false);
+
 
 
         if (from.equalsIgnoreCase("daily_dosages")) {
@@ -99,6 +102,7 @@ public class CostomChildClass extends Activity {
                 intent.putExtra("position", position);
                 intent.putExtra("from_cos", from_cos);
                 intent.putExtra("med_id", med_id);
+                intent.putExtra("checked", isSelected);
                 setResult(RESULT_OK, intent);
                 finish();
             }

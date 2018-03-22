@@ -99,6 +99,15 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
         });
 
 
+        if (listName.get(position).getSelected() == true) {
+            holder.chk_selected.setVisibility(View.VISIBLE);
+
+        } else if (listName.get(position).getSelected() == false) {
+            holder.chk_selected.setVisibility(View.INVISIBLE);
+
+        }
+
+
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -189,6 +198,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 i.putExtra("from", "daily_dosages");
                 i.putExtra("position", position);
                 i.putExtra("med_id", listName.get(position).getMed_id());
+                i.putExtra("checked", listName.get(position).getSelected());
 
                 ac.startActivityForResult(i, 5);
             }
@@ -210,6 +220,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 i.putExtra("from", "frequency");
                 i.putExtra("position", position);
                 i.putExtra("med_id", listName.get(position).getMed_id());
+                i.putExtra("checked", listName.get(position).getSelected());
 
 
                 ac.startActivityForResult(i, 5);
@@ -232,6 +243,8 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 i.putExtra("from", "cycle");
                 i.putExtra("position", position);
                 i.putExtra("med_id", listName.get(position).getMed_id());
+                i.putExtra("checked", listName.get(position).getSelected());
+
 
                 ac.startActivityForResult(i, 5);
             }
@@ -252,6 +265,8 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.UriVie
                 i.putExtra("from", "food_habbit");
                 i.putExtra("position", position);
                 i.putExtra("med_id", listName.get(position).getMed_id());
+                i.putExtra("checked", listName.get(position).getSelected());
+
 
                 ac.startActivityForResult(i, 5);
             }

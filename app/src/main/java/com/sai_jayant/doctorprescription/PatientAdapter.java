@@ -3,11 +3,13 @@ package com.sai_jayant.doctorprescription;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -15,7 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Preet on 1/12/18.
@@ -26,7 +32,6 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewH
     private ArrayList<Patient> listName;
     private DbHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
-
 
 
     public PatientAdapter(Context applicationContext, ArrayList<Patient> contactNameLists) {
@@ -54,6 +59,99 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewH
         holder.adress.setText(listName.get(position).getAdress());
         holder.medicines.setText(listName.get(position).getMedicines());
         holder.time.setText(listName.get(position).getDate());
+
+        holder.csb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("hh-mm-ss-dd-MM-yy-EE");
+
+        Date date1 = null;
+        Date date2 = null;
+        try {
+            date1 = sdf.parse(listName.get(position).getDate());
+            date2 = sdf.parse(sdf.format(System.currentTimeMillis()));
+
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        long difference = date2.getTime() - date1.getTime();
+
+        int minutes = (int) TimeUnit.MILLISECONDS.toMinutes(difference) / 1000;
+        int sec = (int) TimeUnit.SECONDS.toSeconds(difference) / 1000;
+
+        if (minutes < 0) minutes += 1440;
+
+        int time = sec;
+        String time_string = " second";
+        if(time>=2){
+            time_string = time + " seconds";
+
+        }
+
+        if (sec > 60) {
+            time = sec / 60;
+            time_string = time + " minute";
+            if(time>=2){
+                time_string = time + " minutes";
+
+            }
+            if (sec > 3600) {
+                time = sec / 3600;
+                time_string = time + " hour";
+                if(time>=2){
+                    time_string = time + " hours";
+
+                }
+                if (sec > 3600*24) {
+                    time = sec / 3600*24;
+                    time_string = time + " day";
+                    if(time>=2){
+                        time_string = time + " days";
+
+                    }
+                    if (sec > 3600*24*7) {
+                        time = sec / 3600*24*7;
+                        time_string = time + " week";
+                        if(time>=2){
+                            time_string = time + " weeks";
+
+                        }
+
+                    }
+                    if (sec > 3600*24*360) {
+                        time = sec / 3600*24*360;
+                        time_string = time + " year";
+                        if(time>=2){
+                            time_string = time + " years";
+
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+        holder.time.setText("Prescribed " + time_string + " ago");
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -94,7 +192,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewH
                                 // Remove the item on remove/button click
                                 dbHelper = new DbHelper(ctx);
                                 sqLiteDatabase = dbHelper.getWritableDatabase();
-                                dbHelper.DeletePatientRecords(sqLiteDatabase,listName.get(position).getId());
+                                dbHelper.DeletePatientRecords(sqLiteDatabase, listName.get(position).getId());
 
                                 listName.remove(position);
 
@@ -144,7 +242,6 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewH
                 alertbox.show();
 
 
-
             }
         });
 
@@ -190,11 +287,13 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewH
         notifyDataSetChanged();
 
     }
+
     static class UriViewHolder extends RecyclerView.ViewHolder {
 
-        private  LinearLayout expand_layout;
-        private  RelativeLayout expand_shrink;
-        private  ImageView expand;
+        private Button print;
+        private LinearLayout expand_layout;
+        private RelativeLayout expand_shrink;
+        private ImageView expand;
         private ImageView chk_selected;
         private ImageView delete;
         private LinearLayout csb;
@@ -226,6 +325,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.UriViewH
             mobile = (TextView) contentView.findViewById(R.id.number);
             adress = (TextView) contentView.findViewById(R.id.address);
             medicines = (TextView) contentView.findViewById(R.id.medicine);
+            print = (Button) contentView.findViewById(R.id.print);
 
 
         }

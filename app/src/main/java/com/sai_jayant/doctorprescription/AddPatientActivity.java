@@ -154,7 +154,7 @@ public class AddPatientActivity extends AppCompatActivity {
 
                         if (!age.getText().toString().equalsIgnoreCase("")) {
 
-                            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy hh.mm.aa");
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("hh-mm-ss-dd-MM-yy-EE");
                             String formattedDate = dateFormat.format(new Date()).toString();
                             System.out.println(formattedDate);
                             date_now = formattedDate;
@@ -168,7 +168,7 @@ public class AddPatientActivity extends AppCompatActivity {
 
                                         count = count + 1;
 
-                                        med = med + "\n" + contactNumberLists.get(i).getMedicine_name() + " (" + contactNumberLists.get(i).getMedicine_type() + ")" + "\n\n" + contactNumberLists.get(i).getDosages() + "  " + contactNumberLists.get(i).getMedicine_type() + " " + ", " + contactNumberLists.get(i).getFrequency() + "  " + " For " + contactNumberLists.get(i).getDays() + "  " + "\nTake this medicine  " + contactNumberLists.get(i).getFood() + "  " + " \n ........................................................................\n";
+                                        med = med + contactNumberLists.get(i).getMedicine_name() + " (" + contactNumberLists.get(i).getMedicine_type() + ")" + "\n\n" + contactNumberLists.get(i).getDosages() + "  " + contactNumberLists.get(i).getMedicine_type() + " " + ", " + contactNumberLists.get(i).getFrequency() + "  " + " For " + contactNumberLists.get(i).getDays() + "  " + "\nTake this medicine  " + contactNumberLists.get(i).getFood() + "  " + " \n ........................................................................\n\n";
 
                                         String medd = med;
                                     } else {
@@ -311,6 +311,7 @@ public class AddPatientActivity extends AppCompatActivity {
                 String setDays = data.getStringExtra("setDays");
                 String from_cos = data.getStringExtra("from_cos");
                 String med_id = data.getStringExtra("med_id");
+                Boolean checked = data.getBooleanExtra("checked",false);
 
                 int position = data.getIntExtra("position", 0);
 
@@ -339,6 +340,7 @@ public class AddPatientActivity extends AppCompatActivity {
                 m.setFrequency(setFrequency);
                 m.setDays(setDays);
                 m.setMed_id(med_id);
+                m.setSelected(checked);
 
 
                 for (int i = 0; i < contactNumberLists.size(); i++) {

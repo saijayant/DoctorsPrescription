@@ -47,9 +47,9 @@
                 android:fontFamily="sans-serif-condensed"
 
                 android:padding="4dp"
-                android:text="Show this medicine always "
+                android:text="Select this medicine (Checkbox) "
                 android:textColor="#fd237e29"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
             <LinearLayout
                 android:id="@+id/csb"
